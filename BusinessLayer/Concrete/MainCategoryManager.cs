@@ -1,0 +1,45 @@
+﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
+using EntitiyLayer.Concrete;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BusinessLayer.Concrete
+{
+    public class MainCategoryManager : IMainCategoryService
+    {
+        IMainCategoryDal _mainCategoryDal;
+        public MainCategoryManager(IMainCategoryDal mainCategoryDal)
+        {
+            _mainCategoryDal = mainCategoryDal;
+        }
+        public void TAdd(MainCategory t)
+        {
+            _mainCategoryDal.Insert(t);
+        }
+
+        public void TDelete(MainCategory t)
+        {
+            _mainCategoryDal.Insert(t);
+        }
+
+        public MainCategory TGetByID(int id)
+        {
+            return _mainCategoryDal.GetByID(id);
+        }
+
+        public List<MainCategory> TGetList()
+        {
+            return _mainCategoryDal.GetList();
+        }
+
+        public void TUpdate(MainCategory t)
+        {
+            _mainCategoryDal.Insert(t);
+        }
+    }
+}
+
