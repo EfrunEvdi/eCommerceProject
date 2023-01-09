@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EntityFramework
 {
-    public class EfTraderBuyRepository : GenericRepository<TraderBuy>, ITraderBuyDal
+    public class EfCommentRepository : GenericRepository<Comment>, ICommentDal
     {
     }
 }

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eCommerceProject", "eCommerceProject\eCommerceProject.csproj", "{6309549B-0C8A-4BA7-92EC-2124D32C2854}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntitiyLayer", "EntitiyLayer\EntitiyLayer.csproj", "{61DC35E3-F906-4F84-8D02-1E93DE81C29F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityLayer", "EntitiyLayer\EntityLayer.csproj", "{61DC35E3-F906-4F84-8D02-1E93DE81C29F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{AEC3DEAB-1AB7-428A-BC5D-AE939188868B}"
 EndProject

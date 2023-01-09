@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer.Abstract
+namespace DataAccessLayer.Abstract
 {
-    public interface ITraderBuyService : IGenericService<TraderBuy>
+    public interface ICommentDal : IGenericDal<Comment>
     {
     }
 }

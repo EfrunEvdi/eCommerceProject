@@ -1,4 +1,4 @@
-﻿using EntitiyLayer.Concrete;
+﻿using EntityLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -20,5 +20,6 @@ namespace DataAccessLayer.Concrete
         public DbSet<Product> Products { get; set; }
         public DbSet<TraderBuy> TraderBuys { get; set; }
         public DbSet<TraderSell> TraderSells { get; set; }
+        public DbSet<Comment> Comments { get; set; }
     }
 }

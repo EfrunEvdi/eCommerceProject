@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EntitiyLayer.Concrete
+namespace EntityLayer.Concrete
 {
     public class Product
     {
@@ -35,6 +35,9 @@ namespace EntitiyLayer.Concrete
         public TraderBuy TraderBuy { get; set; }
         public int TraderSellID { get; set; }
         public TraderSell TraderSell { get; set; }
+
+        public List<Comment> Comments { get; set; }
+
 
         //TraderSell ve TraderBuyID bağlanacak
         //CategoryMainID eklenecek
