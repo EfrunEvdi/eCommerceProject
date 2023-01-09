@@ -4064,10 +4064,11 @@ ul.twitter-feed a:hover {
 }
 
 @media(max-width: 991px) {
-	.navbar-collapse {
-		max-height: calc(100vh - 80px);
-		overflow-y: scroll;
-	}
+    .navbar-collapse {
+        max-height: calc(100vh - 80px);
+        overflow-y: scroll;
+        justify-content: space-between;
+    }
 	
     .lock-scroll {
         overflow: hidden;
