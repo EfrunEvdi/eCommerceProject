@@ -99,6 +99,9 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("BrandProduct")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("BuyTraderID")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("DateProduct")
                         .HasColumnType("datetime2");
 
@@ -107,9 +110,6 @@ namespace DataAccessLayer.Migrations
 
                     b.Property<int>("GenreCategoryID")
                         .HasColumnType("int");
-
-                    b.Property<string>("ImageUrl10Product")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl1Product")
                         .HasColumnType("nvarchar(max)");
@@ -129,35 +129,25 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("ImageUrl6Product")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImageUrl7Product")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageUrl8Product")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageUrl9Product")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("NameProduct")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PriceProduct")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("SellTraderID")
+                        .HasColumnType("int");
+
                     b.Property<bool>("StatusProduct")
                         .HasColumnType("bit");
 
-                    b.Property<string>("StockAmountProduct")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TraderSellID")
-                        .HasColumnType("int");
-
                     b.HasKey("ProductID");
+
+                    b.HasIndex("BuyTraderID");
 
                     b.HasIndex("GenreCategoryID");
 
-                    b.HasIndex("TraderSellID");
+                    b.HasIndex("SellTraderID");
 
                     b.ToTable("Products");
                 });
@@ -185,88 +175,43 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("SubCategories");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.TraderBuy", b =>
+            modelBuilder.Entity("EntityLayer.Concrete.Trader", b =>
                 {
-                    b.Property<int>("TraderBuyID")
+                    b.Property<int>("TraderID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Address1TraderBuy")
+                    b.Property<string>("Address1Trader")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Address2TraderBuy")
+                    b.Property<string>("Address2Trader")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Address3TraderBuy")
+                    b.Property<string>("Address3Trader")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DateTraderBuy")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DescriptionTraderBuy")
+                    b.Property<string>("DescriptionTrader")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("IBANTraderBuy")
+                    b.Property<string>("IBANTrader")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImageUrlTraderBuy")
+                    b.Property<string>("ImageUrlTrader")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MailTraderBuy")
+                    b.Property<string>("MailTrader")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PhoneNumberTraderBuy")
+                    b.Property<string>("PhoneNumberTrader")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TraderBuyUserName")
+                    b.Property<string>("TraderUserName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("TraderBuyID");
+                    b.HasKey("TraderID");
 
-                    b.ToTable("TraderBuys");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.TraderSell", b =>
-                {
-                    b.Property<int>("TraderSellID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address1TraderSell")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Address2TraderSell")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Address3TraderSell")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateTraderSell")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DescriptionTraderSell")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("IBANTraderSell")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageUrlTraderSell")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MailTraderSell")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumberTraderSell")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TraderSellUserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("TraderSellID");
-
-                    b.ToTable("TraderSells");
+                    b.ToTable("Traders");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Comment", b =>
@@ -293,21 +238,25 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("EntityLayer.Concrete.Product", b =>
                 {
+                    b.HasOne("EntityLayer.Concrete.Trader", "BuyTrader")
+                        .WithMany("TraderBuyer")
+                        .HasForeignKey("BuyTraderID");
+
                     b.HasOne("EntityLayer.Concrete.GenreCategory", "GenreCategory")
                         .WithMany("Products")
                         .HasForeignKey("GenreCategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EntityLayer.Concrete.TraderSell", "TraderSell")
-                        .WithMany("Products")
-                        .HasForeignKey("TraderSellID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("EntityLayer.Concrete.Trader", "SellTrader")
+                        .WithMany("TraderSeller")
+                        .HasForeignKey("SellTraderID");
+
+                    b.Navigation("BuyTrader");
 
                     b.Navigation("GenreCategory");
 
-                    b.Navigation("TraderSell");
+                    b.Navigation("SellTrader");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.SubCategory", b =>
@@ -341,9 +290,11 @@ namespace DataAccessLayer.Migrations
                     b.Navigation("GenreCategories");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.TraderSell", b =>
+            modelBuilder.Entity("EntityLayer.Concrete.Trader", b =>
                 {
-                    b.Navigation("Products");
+                    b.Navigation("TraderBuyer");
+
+                    b.Navigation("TraderSeller");
                 });
 #pragma warning restore 612, 618
         }

@@ -11,11 +11,12 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int ProductID { get; set; }
+        public int? SellTraderID { get; set; }
+        public int? BuyTraderID { get; set; }
         public string NameProduct { get; set; }
         public string DescriptionProduct { get; set; }
         public string BrandProduct { get; set; }
         public string PriceProduct { get; set; }
-        public string StockAmountProduct { get; set; }
         public DateTime DateProduct { get; set; }
         public bool StatusProduct { get; set; }
         public string ImageUrl1Product { get; set; }
@@ -24,18 +25,12 @@ namespace EntityLayer.Concrete
         public string ImageUrl4Product { get; set; }
         public string ImageUrl5Product { get; set; }
         public string ImageUrl6Product { get; set; }
-        public string ImageUrl7Product { get; set; }
-        public string ImageUrl8Product { get; set; }
-        public string ImageUrl9Product { get; set; }
-        public string ImageUrl10Product { get; set; }
         public int GenreCategoryID { get; set; }
         public GenreCategory GenreCategory { get; set; }
-   
-        public int TraderSellID { get; set; }
-        public TraderSell TraderSell { get; set; }
-
         public List<Comment> Comments { get; set; }
-
+        
+        public Trader SellTrader { get; set; }
+        public Trader BuyTrader { get; set; }
 
         //TraderSell ve TraderBuyID bağlanacak
         //CategoryMainID eklenecek
