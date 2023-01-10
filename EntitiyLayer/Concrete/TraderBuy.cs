@@ -21,7 +21,6 @@ namespace EntityLayer.Concrete
         public string Address1TraderBuy { get; set; }
         public string Address2TraderBuy { get; set; }
         public string Address3TraderBuy { get; set; }
-        public List<Product> Products { get; set; }
 
 
         //Product tablosuna id vereceğiz

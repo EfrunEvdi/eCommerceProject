@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eCommerceProject.Controllers
 {
-    public class MainCategoryController : Controller
+    public class ProductController : Controller
     {
-        MainCategoryManager mc = new MainCategoryManager(new EfMainCategoryRepository());
+        ProductManager mc = new ProductManager(new EfProductRepository());
         public IActionResult Index()
         {
             var values = mc.TGetList();

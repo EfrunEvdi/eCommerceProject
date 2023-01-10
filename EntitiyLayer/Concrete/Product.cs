@@ -31,8 +31,6 @@ namespace EntityLayer.Concrete
         public int GenreCategoryID { get; set; }
         public GenreCategory GenreCategory { get; set; }
    
-        public int TraderBuyID { get; set; }
-        public TraderBuy TraderBuy { get; set; }
         public int TraderSellID { get; set; }
         public TraderSell TraderSell { get; set; }
 
