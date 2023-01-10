@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataAccessLayer.Migrations
 {
-    public partial class mig_asdsadassad : Migration
+    public partial class migev : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -115,6 +115,18 @@ namespace DataAccessLayer.Migrations
                         principalTable: "GenreCategories",
                         principalColumn: "GenreCategoryID",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Products_Traders_BuyTraderID",
+                        column: x => x.BuyTraderID,
+                        principalTable: "Traders",
+                        principalColumn: "TraderID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Products_Traders_SellTraderID",
+                        column: x => x.SellTraderID,
+                        principalTable: "Traders",
+                        principalColumn: "TraderID",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -151,9 +163,19 @@ namespace DataAccessLayer.Migrations
                 column: "SubCategoryID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Products_BuyTraderID",
+                table: "Products",
+                column: "BuyTraderID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Products_GenreCategoryID",
                 table: "Products",
                 column: "GenreCategoryID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_SellTraderID",
+                table: "Products",
+                column: "SellTraderID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_SubCategories_MainCategoryID",
@@ -167,13 +189,13 @@ namespace DataAccessLayer.Migrations
                 name: "Comments");
 
             migrationBuilder.DropTable(
-                name: "Traders");
-
-            migrationBuilder.DropTable(
                 name: "Products");
 
             migrationBuilder.DropTable(
                 name: "GenreCategories");
+
+            migrationBuilder.DropTable(
+                name: "Traders");
 
             migrationBuilder.DropTable(
                 name: "SubCategories");

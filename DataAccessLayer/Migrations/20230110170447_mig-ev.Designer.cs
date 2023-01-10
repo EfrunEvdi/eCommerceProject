@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20230110134230_mig_asdsadassad")]
-    partial class mig_asdsadassad
+    [Migration("20230110170447_mig-ev")]
+    partial class migev
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -145,7 +145,11 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("ProductID");
 
+                    b.HasIndex("BuyTraderID");
+
                     b.HasIndex("GenreCategoryID");
+
+                    b.HasIndex("SellTraderID");
 
                     b.ToTable("Products");
                 });
@@ -236,13 +240,25 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("EntityLayer.Concrete.Product", b =>
                 {
+                    b.HasOne("EntityLayer.Concrete.Trader", "BuyTrader")
+                        .WithMany("TraderBuyer")
+                        .HasForeignKey("BuyTraderID");
+
                     b.HasOne("EntityLayer.Concrete.GenreCategory", "GenreCategory")
                         .WithMany("Products")
                         .HasForeignKey("GenreCategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("EntityLayer.Concrete.Trader", "SellTrader")
+                        .WithMany("TraderSeller")
+                        .HasForeignKey("SellTraderID");
+
+                    b.Navigation("BuyTrader");
+
                     b.Navigation("GenreCategory");
+
+                    b.Navigation("SellTrader");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.SubCategory", b =>
@@ -274,6 +290,13 @@ namespace DataAccessLayer.Migrations
             modelBuilder.Entity("EntityLayer.Concrete.SubCategory", b =>
                 {
                     b.Navigation("GenreCategories");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.Trader", b =>
+                {
+                    b.Navigation("TraderBuyer");
+
+                    b.Navigation("TraderSeller");
                 });
 #pragma warning restore 612, 618
         }
