@@ -138,6 +138,9 @@ namespace DataAccessLayer.Migrations
                     b.Property<int?>("SellTraderID")
                         .HasColumnType("int");
 
+                    b.Property<string>("SizeProduct")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("StatusProduct")
                         .HasColumnType("bit");
 

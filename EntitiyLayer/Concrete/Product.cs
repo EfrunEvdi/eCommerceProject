@@ -16,6 +16,7 @@ namespace EntityLayer.Concrete
         public string NameProduct { get; set; }
         public string DescriptionProduct { get; set; }
         public string BrandProduct { get; set; }
+        public string SizeProduct { get; set; } 
         public string PriceProduct { get; set; }
         public DateTime DateProduct { get; set; }
         public bool StatusProduct { get; set; }
