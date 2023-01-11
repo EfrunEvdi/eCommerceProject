@@ -1,7 +1,8 @@
 ﻿@using EntityLayer.Concrete
 @model List<Product>
+
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "aldiklarim";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
@@ -10,7 +11,8 @@
         <!-- tittle heading -->
         <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
             <span class="font-weight-normal">
-                Hoşgeldin <b>Efrun</b> !</span>
+                Aldığım Ürünler
+            </span>
         </h3>
         <!-- //tittle heading -->
         <div class="row">
@@ -19,15 +21,15 @@
                 <div class="side-bar p-sm-4 p-3">
                     <!-- reviews -->
                     <div class="customer-rev left-side py-2">
-                        <h3 class="agileits-sear-head mb-3"><a href="#">İLANLARIM</a></h3>
+                        <h3 class="agileits-sear-head mb-3"><a href="/Trader/ilanlarim">İLANLARIM</a></h3>
                     </div>
 
                     <div class="range py-2">
-                        <h3 class="agileits-sear-head mb-3"><a href="#">ALDIKLARIM</a></h3>
+                        <h3 class="agileits-sear-head mb-3"><a href="/Trader/aldiklarim">ALDIKLARIM</a></h3>
                     </div>
 
                     <div class="left-side py-2">
-                        <h3 class="agileits-sear-head mb-3"><a href="#">SATTIKLARIM</a></h3>
+                        <h3 class="agileits-sear-head mb-3"><a href="/Trader/sattiklarim">SATTIKLARIM</a></h3>
                     </div>
 
                     <div class="left-side py-2">
@@ -35,7 +37,7 @@
                     </div>
 
                     <div class="left-side py-2">
-                        <h3 class="agileits-sear-head mb-3"><a href="#">PROFİLİM</a></h3>
+                        <h3 class="agileits-sear-head mb-3"><a href="/Profile/profilim">PROFİLİM</a></h3>
                     </div>
 
                     <div class="left-side py-2">
@@ -51,9 +53,8 @@
                         <div class="row">
                             @foreach (var item in Model)
                             {
-                                @if (item.SellTraderID == 1)
+                                @if (item.BuyTraderID == 3 && item.StatusProduct == false)
                                 {
-
                                     <div class="col-md-4 product-men mt-md-0 mt-5">
                                         <div class="men-pro-item simpleCart_shelfItem">
                                             <div class="men-thumb-item text-center">
@@ -65,17 +66,6 @@
                                                         </a>
                                                     </div>
                                                 </div>
-                                                <span class="product-new-top">
-                                                    @if (item.StatusProduct)
-                                                    {
-                                                        <p>Satıldı</p>
-                                                    }
-                                                    else
-                                                    {
-                                                        <p>Satışta</p>
-                                                    }
-                                                </span>
-
                                             </div>
                                             <div class="item-info-product text-center mt-2">
                                                 <h4 class="pt-1">
@@ -106,7 +96,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 }
                             }
                         </div>
@@ -116,5 +105,4 @@
         </div>
     </div>
 </div>
-
 

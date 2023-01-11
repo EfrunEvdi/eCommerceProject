@@ -1,0 +1,42 @@
+﻿@using EntityLayer.Concrete
+@model List<Trader>
+@{
+    ViewData["Title"] = "profilim";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Kullanıcı Adı</th>
+        <th>Hakkımda</th>
+        <th>Profil Fotoğrafı</th>
+        <th>Telefon Numarası</th>
+        <th>E-Posta</th>
+        <th>İBAN Bilgisi</th>
+        <th>Adres1</th>
+        <th>Adres2</th>
+        <th>Adres3</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        @if (item.TraderID == 3)
+        {
+            <tr>
+                <td>@item.TraderID</td>
+                <td>@item.TraderUserName</td>
+                <td>@item.DescriptionTrader</td>
+                <td>@item.ImageUrlTrader</td>
+                <td>@item.PhoneNumberTrader</td>
+                <td>@item.MailTrader</td>
+                <td>@item.IBANTrader</td>
+                <td>@item.Address1Trader</td>
+                <td>@item.Address2Trader</td>
+                <td>@item.Address3Trader</td>
+            </tr>
+        }
+
+    }
+</table>
