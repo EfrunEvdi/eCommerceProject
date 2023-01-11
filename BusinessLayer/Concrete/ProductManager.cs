@@ -36,6 +36,11 @@ namespace BusinessLayer.Concrete
             return _productDal.GetList();
         }
 
+        public List<Product> TGetList(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void TUpdate(Product t)
         {
             _productDal.Update(t);

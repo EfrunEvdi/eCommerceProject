@@ -4,6 +4,7 @@ using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,6 +17,8 @@ namespace BusinessLayer.Concrete
         {
             _genreCategoryDal = genreCategoryDal;
         }
+
+
         public void TAdd(GenreCategory t)
         {
             _genreCategoryDal.Insert(t);
@@ -34,6 +37,11 @@ namespace BusinessLayer.Concrete
         public List<GenreCategory> TGetList()
         {
             return _genreCategoryDal.GetList();
+        }
+
+        public List<GenreCategory> TGetList(int id)
+        {
+            return _genreCategoryDal.GetList(x => x.SubCategoryID == id);
         }
 
         public void TUpdate(GenreCategory t)

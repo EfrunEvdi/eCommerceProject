@@ -36,6 +36,11 @@ namespace BusinessLayer.Concrete
             return _traderDal.GetList();
         }
 
+        public List<Trader> TGetList(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void TUpdate(Trader t)
         {
             _traderDal.Update(t);

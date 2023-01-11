@@ -36,6 +36,11 @@ namespace BusinessLayer.Concrete
             return _subCategoryDal.GetList();
         }
 
+        public List<SubCategory> TGetList(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void TUpdate(SubCategory t)
         {
             _subCategoryDal.Update(t);

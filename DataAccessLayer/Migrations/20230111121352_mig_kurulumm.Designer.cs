@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20230111115153_mig_sizeproduct_column_added")]
-    partial class mig_sizeproduct_column_added
+    [Migration("20230111121352_mig_kurulumm")]
+    partial class mig_kurulumm
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -38,6 +38,11 @@ namespace BusinessLayer.Concrete
             return _commentDal.GetList();
         }
 
+        public List<Comment> TGetList(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void TUpdate(Comment t)
         {
             _commentDal.Update(t);

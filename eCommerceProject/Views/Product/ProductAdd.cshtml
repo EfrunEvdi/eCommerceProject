@@ -1,0 +1,35 @@
+﻿@model EntityLayer.Concrete.Product
+@{
+    ViewData["Title"] = "ProductAdd";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<br />
+<div class="card-header border-0">
+    <h3 class="mb-0">Ürün Ekleme Paneli</h3>
+</div>
+
+@using (Html.BeginForm("ProductAdd", "Product", FormMethod.Post))
+{
+    
+    @Html.Label("Ürün Adı")
+    @Html.TextBoxFor(x=> x.NameProduct, new {@class="form-control"})
+    <br />
+    @Html.Label("Açıklaması")
+    @Html.TextBoxFor(x=> x.DescriptionProduct, new {@class="form-control"})
+    <br />
+    @Html.Label("Tarih")
+    @Html.TextBoxFor(x=> x.DateProduct, new {@class="form-control"})
+    <br />
+    @Html.Label("Fotoğraf")
+    @Html.TextBoxFor(x=> x.ImageUrl1Product, new {@class="form-control"})
+    <br />
+    @Html.Label("Kategori")
+    @Html.DropDownListFor(x=> x.GenreCategoryID, (List<SelectListItem>)ViewBag.cv, new {@class="form-control"})
+    <br />
+
+
+
+}
+
+
