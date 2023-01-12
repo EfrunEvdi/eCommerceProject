@@ -55,7 +55,7 @@
 </script>
 <!-- //nav smooth scroll -->
 <!-- popup modal (for location)-->
-<script src="js/jquery.magnific-popup.js"></script>
+<script src="~/web/js/jquery.magnific-popup.js"></script>
 <script>
     $(document).ready(function () {
         $('.popup-with-zoom-anim').magnificPopup({
@@ -118,6 +118,23 @@
     }
 </script>
 <!-- //password-script -->
+<!-- imagezoom -->
+<script src="~/web/js/imagezoom.js"></script>
+<!-- //imagezoom -->
+<!-- flexslider -->
+<link rel="stylesheet" href="~/web/css/flexslider.css" type="text/css" media="screen" />
+
+<script src="~/web/js/jquery.flexslider.js"></script>
+<script>
+    // Can also be used with $(document).ready()
+    $(window).load(function () {
+        $('.flexslider').flexslider({
+            animation: "slide",
+            controlNav: "thumbnails"
+        });
+    });
+</script>
+<!-- //FlexSlider-->
 <!-- theme switch js (light and dark)-->
 <script src="~/web/js/theme-change.js"></script>
 <script>

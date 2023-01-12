@@ -1,5 +1,6 @@
 ﻿@using EntityLayer.Concrete
 @model List<Product>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -54,26 +55,5 @@
     </div>
 </div>
 
-@foreach (var item1 in Model)
-{
-    @if (item1.SellTraderID==3)
-    {
-        <div class="card" style="width: 18rem;">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">@item1.NameProduct</li>
-                <li class="list-group-item">@item1.DateProduct</li>
-                <li class="list-group-item">@item1.BrandProduct</li>
-            </ul>
-            <div class="card-footer">
-                @item1.PriceProduct
-            </div>
-        </div>
 
-        <hr />
-    }
 
-    else
-    {
-        <p>lşdkfjddlksşi</p>
-    }
-}

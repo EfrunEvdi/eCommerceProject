@@ -1,0 +1,18 @@
+﻿@using EntityLayer.Concrete
+@model List<MainCategory>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<table>
+    <tr>
+        @foreach (var item in Model){
+            <th><a href="/SubCategory/Index/@item.MainCategoryID">@item.NameMainCategory</a></th>
+        }
+    </tr>
+
+
+
+</table>
+

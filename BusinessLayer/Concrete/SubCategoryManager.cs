@@ -35,10 +35,13 @@ namespace BusinessLayer.Concrete
         {
             return _subCategoryDal.GetList();
         }
-
+        public List<SubCategory> GetSubCategoryListWithMain()
+        {
+            return _subCategoryDal.SubCategoriesListByMain();
+        }
         public List<SubCategory> TGetList(int id)
         {
-            throw new NotImplementedException();
+            return _subCategoryDal.GetList(x => x.MainCategoryID == id);
         }
 
         public void TUpdate(SubCategory t)

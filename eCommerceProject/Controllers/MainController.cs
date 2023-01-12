@@ -1,12 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Mvc;
 
 namespace eCommerceProject.Controllers
 {
     public class MainController : Controller
     {
+        MainCategoryManager mcm = new MainCategoryManager(new EfMainCategoryRepository());
         public IActionResult Index()
         {
-            return View();
+            var values=mcm.TGetList();  
+            return View(values);
         }
     }
 }

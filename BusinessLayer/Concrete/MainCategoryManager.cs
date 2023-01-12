@@ -36,6 +36,8 @@ namespace BusinessLayer.Concrete
             return _mainCategoryDal.GetList();
         }
 
+       
+
         public List<MainCategory> TGetList(int id)
         {
             throw new NotImplementedException();

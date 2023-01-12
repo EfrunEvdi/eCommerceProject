@@ -43,6 +43,11 @@ namespace eCommerceProject.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult ProductDetails()
+        {
+            var values = pm.TGetList();
+            return View(values);
+        }
 
     }
 }
