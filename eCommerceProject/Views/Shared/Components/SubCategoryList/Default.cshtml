@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<EntityLayer.Concrete.SubCategory>
 
-@foreach (var item in Model){
+@foreach (var item in Model)
+{
     <p>@item.SubCategoryID</p>
     <p><a href="/GenreCategory/Index/@item.SubCategoryID">@item.NameSubCategory</a></p>
 }

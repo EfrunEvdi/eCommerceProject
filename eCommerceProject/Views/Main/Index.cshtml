@@ -5,14 +5,15 @@
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
-<table>
+<table class="table table-bordered">
     <tr>
-        @foreach (var item in Model){
-            <th><a href="/SubCategory/Index/@item.MainCategoryID">@item.NameMainCategory</a></th>
-        }
+        <th>Kategoriler</th>
     </tr>
 
-
+    @foreach (var item in Model)
+    {
+        <tr> <td><a href="/SubCategory/Index/@item.MainCategoryID">@item.NameMainCategory</a></td> </tr>
+    }
 
 </table>
 

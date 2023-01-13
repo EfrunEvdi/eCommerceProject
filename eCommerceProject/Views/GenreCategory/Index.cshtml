@@ -4,8 +4,16 @@
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
+<table class="table table-bordered">
+    <tr><th>Kategoriler</th></tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> <a href="/Product/ProductAdd/@item.GenreCategoryID">@item.NameGenreCategory </a></td>
+        </tr>
+    }
+</table>
 
-
-@await Component.InvokeAsync("GenreCategoryList", new {id=ViewBag.i})
+@*@await Component.InvokeAsync("GenreCategoryList", new {id=ViewBag.i})*@
 
 

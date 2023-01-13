@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 
 namespace eCommerceProject.Controllers
 {
@@ -20,7 +21,7 @@ namespace eCommerceProject.Controllers
        
 
         [HttpGet]
-        public IActionResult ProductAdd()
+        public IActionResult ProductAdd(int id)
         {
             //ViewBag.v1 = "Deneyim Ekleme";//ViewBag ile gönderdiğimiz değer sayfaya aktarılır istenilen yerde kullanılır. AddSkill sayfasına.
             //ViewBag.v2 = "Deneyimler";
@@ -30,10 +31,13 @@ namespace eCommerceProject.Controllers
                                                   select new SelectListItem
                                                   {
                                                       Text=x.NameGenreCategory,
-                                                      Value=x.GenreCategoryID.ToString()    
-                                                  }).ToList();
+                                                      Value=x.GenreCategoryID.ToString(),
+                                                      
 
+                                                  }).ToList();
+            ViewBag.i = id;
             ViewBag.cv = categoryvalues;
+            
             return View();
         }
         [HttpPost]

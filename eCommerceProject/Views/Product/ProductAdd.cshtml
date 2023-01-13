@@ -25,7 +25,8 @@
     @Html.TextBoxFor(x=> x.ImageUrl1Product, new {@class="form-control"})
     <br />
     @Html.Label("Kategori")
-    @Html.DropDownListFor(x=> x.GenreCategoryID, (List<SelectListItem>)ViewBag.cv, new {@class="form-control"})
+    @Html.TextBoxFor(x=> x.GenreCategory.NameGenreCategory, new {@class="form-control"})
+   @* @Html.DropDownListFor(x=> x.GenreCategoryID, (List<SelectListItem>)ViewBag.cv, new {@class="form-control"})*@
     <br />
 
 
