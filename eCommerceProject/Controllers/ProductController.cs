@@ -27,15 +27,14 @@ namespace eCommerceProject.Controllers
             //ViewBag.v2 = "Deneyimler";
             //ViewBag.v3 = "Deneyim Ekleme";
             GenreCategoryManager gc = new GenreCategoryManager (new EfGenreCategoryRepository());
-            List<SelectListItem> categoryvalues= (from x in gc.TGetList()
+            List<SelectListItem> categoryvalues= (from x in gc.TGetList(id)
                                                   select new SelectListItem
                                                   {
                                                       Text=x.NameGenreCategory,
                                                       Value=x.GenreCategoryID.ToString(),
-                                                      
 
                                                   }).ToList();
-            ViewBag.i = id;
+            
             ViewBag.cv = categoryvalues;
             
             return View();
