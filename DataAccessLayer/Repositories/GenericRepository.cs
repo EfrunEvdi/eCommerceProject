@@ -37,6 +37,9 @@ namespace DataAccessLayer.Repositories
             using var c = new Context();
             return c.Set<T>().Where(filter).ToList();
         }
+
+        
+
         public void Insert(T t)
         {
             using var c = new Context();

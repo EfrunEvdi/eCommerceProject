@@ -9,6 +9,7 @@ namespace eCommerceProject.Controllers
         MainCategoryManager mcm = new MainCategoryManager(new EfMainCategoryRepository());
         public IActionResult Index()
         {
+            
             var values=mcm.TGetList();  
             return View(values);
         }

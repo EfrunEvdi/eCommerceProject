@@ -40,6 +40,10 @@ namespace BusinessLayer.Concrete
         {
             throw new NotImplementedException();
         }
+        public List<Product> GetProductByGenre(int id)
+        {
+            return _productDal.GetList(x => x.GenreCategory.SubCategoryID == id);
+        }
 
         public void TUpdate(Product t)
         {

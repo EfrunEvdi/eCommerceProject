@@ -21,6 +21,7 @@ namespace EntityLayer.Concrete
         public string Address2Trader { get; set; }
         public string Address3Trader { get; set; }
 
+        //public List<Trader> Traders { get; set; }
         public virtual ICollection <Product> TraderSeller { get; set; }
         public virtual ICollection <Product> TraderBuyer { get; set; }
 
