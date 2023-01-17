@@ -1,0 +1,33 @@
+﻿@model EntityLayer.Concrete.MainCategory
+
+@{
+    ViewData["Title"] = "EditMainCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h3 class="mb-0">Ana Kategori Güncelleme Tablosu</h3>
+</div>
+
+@*Aşağıdaki BeginForm tagine aksiyon, tablo, method tanımlaması yaptık.*@
+@using (Html.BeginForm("EditMainCategory", "MainCategory", FormMethod.Post))
+{
+        <div style="margin-left:1rem; margin-right:1rem;">
+        @Html.HiddenFor(x=>x.MainCategoryID ) @*Hidden for gönderilen referanslar için kullanılır hide gizli anlamında referans göndermeden güncellenecek*@
+        <br />
+        @Html.Label("Başlık :") @*açıklama textareafor olacak*@
+        @Html.TextBoxFor(x=> x.NameMainCategory, new {@class="form-control"})
+        @Html.ValidationMessageFor(x=>x.NameMainCategory,"",new{@class="text-danger", @style="font-size:12px;"})
+        <br />
+        @Html.Label("İsim :") @*açıklama textareafor olacak*@
+        @Html.TextAreaFor(x=> x.ImageUrlMainCategory,4,2 ,new {@class="form-control"})
+        @Html.ValidationMessageFor(x=>x.ImageUrlMainCategory,"",new{@class="text-danger", @style="font-size:12px;"})
+        <br />
+        <button type="submit" class="btn btn-success">Güncelle</button>
+
+            <button type="reset"  class="btn btn-info">İptal</button>
+        </div>
+       <br />
+
+}
+
