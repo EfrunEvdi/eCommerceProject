@@ -11,10 +11,10 @@ namespace eCommerceProject.Areas.Admin.Controllers
     [Area("Admin")]
     public class MainCategoryController : Controller
     {
-        MainCategoryManager mcm = new MainCategoryManager(new EfMainCategoryRepository());
+        MainCategoryManager amcm = new MainCategoryManager(new EfMainCategoryRepository());
         public IActionResult Index()
         {
-            var values = mcm.TGetList();
+            var values = amcm.TGetList();
             return View(values);
         }
 
@@ -28,15 +28,13 @@ namespace eCommerceProject.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult AddMainCategory(MainCategory mainCategory)
         {
-
             MainCategoryValidator validations = new MainCategoryValidator();
             ValidationResult results = validations.Validate(mainCategory);
 
             if (results.IsValid) //eğer giriş için olumsuz şart yoksa ekler
             {
-
-                mcm.TAdd(mainCategory);
-                return RedirectToAction("Index");//Ekledikten sonra tekrar listelemesini istediğimiz için yaptık
+                amcm.TAdd(mainCategory);
+                return RedirectToAction("MainCategory", "Admin");//Ekledikten sonra tekrar listelemesini istediğimiz için yaptık
             }
             else
             {
@@ -51,18 +49,17 @@ namespace eCommerceProject.Areas.Admin.Controllers
         //Silme
         public IActionResult DeleteMainCategory(int id)
         {
-            var values = mcm.TGetByID(id);
-            mcm.TDelete(values);
-            return RedirectToAction("Index");
+            var values = amcm.TGetByID(id);
+            amcm.TDelete(values);
+            return RedirectToAction("MainCategory", "Admin");
         }
 
         //Güncelleme
         [HttpGet]
         public IActionResult EditMainCategory(int id)
         {
-
-            var values = mcm.TGetByID(id);
-            mcm.TUpdate(values);
+            var values = amcm.TGetByID(id);
+            amcm.TUpdate(values);
             return View(values);
         }
 
@@ -74,9 +71,8 @@ namespace eCommerceProject.Areas.Admin.Controllers
 
             if (results.IsValid) //eğer giriş için olumsuz şart yoksa ekler
             {
-
-                mcm.TUpdate(mainCategory);
-                return RedirectToAction("Index");//Ekledikten sonra tekrar listelemesini istediğimiz için yaptık
+                amcm.TUpdate(mainCategory);
+                return RedirectToAction("MainCategory", "Admin");//Ekledikten sonra tekrar listelemesini istediğimiz için yaptık
             }
             else
             {

@@ -8,23 +8,26 @@
 <div class="card-header border-0">
     <h3 class="mb-0">Ana Kategori Ekleme Tablosu</h3>
 </div>
-@using (Html.BeginForm("AddMainCategory", "MainCategory", FormMethod.Post))
-{
-    @Html.Label("Ana Kategori İsmi : ")
-    @Html.TextBoxFor(x => x.NameMainCategory, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.NameMainCategory)
 
-    <br />
+<form class="form-group " style="margin-left: 1rem; margin-right: 1rem;" method="post">
 
-    @Html.Label("Ana Kategori Resmi : ")
-    @Html.TextBoxFor(x => x.ImageUrlMainCategory, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.ImageUrlMainCategory)
+    @using (Html.BeginForm("AddMainCategory", "MainCategory", FormMethod.Post))
+    {
+        @Html.Label("Ana Kategori İsmi : ")
+        @Html.TextBoxFor(x => x.NameMainCategory, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.NameMainCategory)
 
+        <br />
 
+        @Html.Label("Ana Kategori Resmi : ")
+        @Html.TextBoxFor(x => x.ImageUrlMainCategory, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.ImageUrlMainCategory)
 
-  
-
-    <button class="btn btn-info">Yazıyı Kaydet</button>
-}
+        <br />
 
 
+
+        <button class="btn btn-info">Yazıyı Kaydet</button>
+    }
+
+</form>

@@ -38,6 +38,10 @@ namespace BusinessLayer.Concrete
         {
             return _genreCategoryDal.GetList();
         }
+        public List<GenreCategory> GetGenreCategoryListWithSub()
+        {
+            return _genreCategoryDal.GenreCategoriesListBySub();
+        }
 
         public List<GenreCategory> TGetList(int id)
         {

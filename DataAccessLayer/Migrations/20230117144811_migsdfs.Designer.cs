@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20230116102813_mig_denemee")]
-    partial class mig_denemee
+    [Migration("20230117144811_migsdfs")]
+    partial class migsdfs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -1,0 +1,36 @@
+﻿@model EntityLayer.Concrete.GenreCategory
+
+@{
+    ViewData["Title"] = "AddGenreCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h3 class="mb-0">Tür Kategori Ekleme Tablosu</h3>
+</div>
+
+<form class="form-group " style="margin-left: 1rem; margin-right: 1rem;" method="post">
+
+    @using (Html.BeginForm("AddGenreCategory", "GenreCategory", FormMethod.Post))
+    {
+        @Html.Label("Tür Kategori İsmi : ")
+        @Html.TextBoxFor(x => x.NameGenreCategory, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.NameGenreCategory)
+
+            <br />
+
+        @Html.Label("Tür Kategori Resmi : ")
+        @Html.TextBoxFor(x => x.ImageUrlGenreCategory, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.ImageUrlGenreCategory)
+
+            <br />
+
+        @Html.Label("Bağlı Olduğu Ana Kategori :")
+        @Html.DropDownListFor(x=>x.SubCategoryID,(List<SelectListItem>)ViewBag.cv,new{@class="form-control"})
+        @Html.ValidationMessageFor(x=>x.SubCategoryID,"",new{@class="text-danger", @style="font-size:12px;"})
+
+
+            <button class="btn btn-info">Yazıyı Kaydet</button>
+    }
+
+</form>

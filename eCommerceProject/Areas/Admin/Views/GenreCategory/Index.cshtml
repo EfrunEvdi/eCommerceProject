@@ -1,0 +1,42 @@
+﻿@using EntityLayer.Concrete
+@model List<GenreCategory>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Card header -->
+<div class="card-header border-0">
+    <h3 class="mb-0">Tür Kategori Tablosu</h3>
+</div>
+
+<div class="table-responsive">
+    <table class="table align-items-center table-flush">
+        <thead class="thead-dark">
+            <tr>
+
+                <th scope="col" class="sort" data-sort="GenreCategoryID">#</th>
+                <th scope="col" class="sort" data-sort="NameGenreCategory">Tür Kategori İsmi :</th>
+                <th scope="col" class="sort" data-sort="ImageUrlGenreCategory">Tür Kategori Resmi :</th>
+                <th scope="col" class="sort" data-sort="MainCategoryID">Bağlı Olduğu Ara Kategori :</th>
+                <th scope="col">Sil</th>
+                <th scope="col" class="sort" data-sort="completion">Düzenle</th>
+            </tr>
+        </thead>
+        <tbody class="list">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.GenreCategoryID</th>
+                    <td class="budget">@item.NameGenreCategory</td>
+                    <td class="budget">@item.ImageUrlGenreCategory</td>
+                    <td class="budget">@item.SubCategory.NameSubCategory</td>
+                    <td> <a href="/Admin/GenreCategory/DeleteGenreCategory/@item.GenreCategoryID" class="btn btn-danger">Sil</a></td>   @*Silme ve güncelleme işlemi için id gönderiyoruz*@
+                    <td> <a href="/Admin/GenreCategory/EditGenreCategory/@item.GenreCategoryID" class="btn btn-info">Güncelle</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/Admin/GenreCategory/AddGenreCategory/" class="btn btn-success">Yeni Tür Kategori Ekle</a>
+</div>

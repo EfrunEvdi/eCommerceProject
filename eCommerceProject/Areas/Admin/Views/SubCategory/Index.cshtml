@@ -1,0 +1,41 @@
+﻿@using EntityLayer.Concrete
+@model List<SubCategory>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Card header -->
+<div class="card-header border-0">
+    <h3 class="mb-0">Ara Kategori Tablosu</h3>
+</div>
+
+<div class="table-responsive">
+    <table class="table align-items-center table-flush">
+        <thead class="thead-dark">
+            <tr>
+
+                <th scope="col" class="sort" data-sort="SubCategoryID">#</th>
+                <th scope="col" class="sort" data-sort="NameSubCategory">Ara Kategori İsmi :</th>
+                <th scope="col" class="sort" data-sort="ImageUrlSubCategory">Ara Kategori Resmi :</th>
+                <th scope="col" class="sort" data-sort="MainCategoryID">Bağlı Olduğu Ana Kategori :</th>
+                <th scope="col">Sil</th>
+                <th scope="col" class="sort" data-sort="completion">Düzenle</th>
+            </tr>
+        </thead>
+        <tbody class="list">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.SubCategoryID</th>
+                    <td class="budget">@item.NameSubCategory</td>
+                    <td class="budget">@item.ImageUrlSubCategory</td>
+                    <td class="budget">@item.MainCategory.NameMainCategory</td>
+                    <td> <a href="/Admin/SubCategory/DeleteSubCategory/@item.SubCategoryID" class="btn btn-danger">Sil</a></td>   @*Silme ve güncelleme işlemi için id gönderiyoruz*@
+                    <td> <a href="/Admin/SubCategory/EditSubCategory/@item.SubCategoryID" class="btn btn-info">Güncelle</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/Admin/SubCategory/AddSubCategory/" class="btn btn-success">Yeni Ara Kategori Ekle</a>
+</div>

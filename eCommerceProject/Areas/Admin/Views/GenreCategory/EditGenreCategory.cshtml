@@ -1,0 +1,38 @@
+﻿@model EntityLayer.Concrete.GenreCategory
+
+@{
+    ViewData["Title"] = "EditGenreCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h3 class="mb-0">Tür Kategori Güncelleme Tablosu</h3>
+</div>
+
+<form class="form-group " style="margin-left: 1rem; margin-right: 1rem;" method="post">
+
+    @using (Html.BeginForm("EditGenreCategory", "GenreCategory", FormMethod.Post))
+    {
+            <div style="margin-left:1rem; margin-right:1rem;">
+            @Html.HiddenFor(x=>x.GenreCategoryID )
+                <br />
+            @Html.Label("Tür Kategori İsmi :")
+            @Html.TextBoxFor(x=> x.NameGenreCategory, new {@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.NameGenreCategory,"",new{@class="text-danger", @style="font-size:12px;"})
+                <br />
+            @Html.Label("Tür Kategori Resmi :")
+            @Html.TextAreaFor(x=> x.ImageUrlGenreCategory,4,2 ,new {@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.ImageUrlGenreCategory,"",new{@class="text-danger", @style="font-size:12px;"})
+                <br />
+
+            @Html.Label("Bağlı Olduğu Ana Kategori :")
+            @Html.DropDownListFor(x=>x.SubCategoryID,(List<SelectListItem>)ViewBag.cv,new{@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.SubCategoryID,"",new{@class="text-danger", @style="font-size:12px;"})
+
+                <br />
+                <button type="submit" class="btn btn-success">Güncelle</button>
+            </div>
+            <br />
+
+    }
+</form>

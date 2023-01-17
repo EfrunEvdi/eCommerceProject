@@ -23,7 +23,7 @@ namespace BusinessLayer.Concrete
 
         public void TDelete(MainCategory t)
         {
-            _mainCategoryDal.Insert(t);
+            _mainCategoryDal.Delete(t);
         }
 
         public MainCategory TGetByID(int id)
@@ -45,7 +45,7 @@ namespace BusinessLayer.Concrete
 
         public void TUpdate(MainCategory t)
         {
-            _mainCategoryDal.Insert(t);
+            _mainCategoryDal.Update(t);
         }
     }
 }

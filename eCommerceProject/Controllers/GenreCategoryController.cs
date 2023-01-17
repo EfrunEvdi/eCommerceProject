@@ -9,8 +9,8 @@ namespace eCommerceProject.Controllers
         GenreCategoryManager gcm = new GenreCategoryManager(new EfGenreCategoryRepository());
         public IActionResult Index(int id)
         {
-            ViewBag.i = id;
-            var values = gcm.TGetList(id);
+            //ViewBag.i = id;
+            var values = gcm.TGetList();
             return View(values);
         }
     }

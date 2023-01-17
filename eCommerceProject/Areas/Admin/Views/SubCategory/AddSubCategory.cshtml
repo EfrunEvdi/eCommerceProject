@@ -1,0 +1,36 @@
+﻿@model EntityLayer.Concrete.SubCategory
+
+@{
+    ViewData["Title"] = "AddSubCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h3 class="mb-0">Ara Kategori Ekleme Tablosu</h3>
+</div>
+
+<form class="form-group " style="margin-left: 1rem; margin-right: 1rem;" method="post">
+
+    @using (Html.BeginForm("AddSubCategory", "SubCategory", FormMethod.Post))
+    {
+        @Html.Label("Ara Kategori İsmi : ")
+        @Html.TextBoxFor(x => x.NameSubCategory, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.NameSubCategory)
+
+        <br />
+
+        @Html.Label("Ara Kategori Resmi : ")
+        @Html.TextBoxFor(x => x.ImageUrlSubCategory, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.ImageUrlSubCategory)
+
+        <br />
+
+        @Html.Label("Bağlı Olduğu Ana Kategori :")
+        @Html.DropDownListFor(x=>x.MainCategoryID,(List<SelectListItem>)ViewBag.cv,new{@class="form-control"})
+        @Html.ValidationMessageFor(x=>x.MainCategoryID,"",new{@class="text-danger", @style="font-size:12px;"})
+
+
+        <button class="btn btn-info">Yazıyı Kaydet</button>
+    }
+
+</form>

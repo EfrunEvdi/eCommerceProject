@@ -14,12 +14,12 @@
 
 <div class="table-responsive">
     <table class="table align-items-center table-flush">
-        <thead class="thead-light">
+        <thead class="thead-dark">
             <tr>
 
-                <th scope="col" class="sort" data-sort="id">#</th>
-                <th scope="col" class="sort" data-sort="Header">Ana Kategori İsmi :</th>
-                <th scope="col" class="sort" data-sort="Name">Ana Kategori Resmi :</th>
+                <th scope="col" class="sort" data-sort="MainCategoryID">#</th>
+                <th scope="col" class="sort" data-sort="NameMainCategory">Ana Kategori İsmi :</th>
+                <th scope="col" class="sort" data-sort="ImageUrlMainCategory">Ana Kategori Resmi :</th>
                 <th scope="col">Sil</th>
                 <th scope="col" class="sort" data-sort="completion">Düzenle</th>
             </tr>
@@ -31,13 +31,13 @@
                     <th>@item.MainCategoryID</th>
                     <td class="budget">@item.NameMainCategory</td>
                     <td class="budget">@item.ImageUrlMainCategory</td>
-                    <td> <a href="/MainCategory/DeleteMainCategory/@item.MainCategoryID" class="btn btn-danger">Sil</a></td>   @*Silme ve güncelleme işlemi için id gönderiyoruz*@
-                    <td> <a href="/MainCategory/EditMainCategory/@item.MainCategoryID" class="btn btn-info"> Güncelle</a></td>
+                    <td> <a href="/Admin/MainCategory/DeleteMainCategory/@item.MainCategoryID" class="btn btn-danger">Sil</a></td>   @*Silme ve güncelleme işlemi için id gönderiyoruz*@
+                    <td> <a href="/Admin/MainCategory/EditMainCategory/@item.MainCategoryID" class="btn btn-info">Güncelle</a></td>
                 </tr>
             }
         </tbody>
     </table>
-    <a href="/MainCategory/AddMainCategory" class="btn btn-success">Yeni Ana Kategori Ekle</a>
+    <a href="/Admin/MainCategory/AddMainCategory/" class="btn btn-success">Yeni Ana Kategori Ekle</a>
 </div>
 
 
