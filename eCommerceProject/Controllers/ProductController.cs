@@ -46,9 +46,10 @@ namespace eCommerceProject.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult ProductDetails()
+        public IActionResult ProductDetails(int id)
         {
-            var values = pm.TGetList();
+            ViewBag.i = id;
+            var values =pm.TGetList(id);    
             return View(values);
         }
         public IActionResult Test(int id)

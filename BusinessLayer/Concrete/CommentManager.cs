@@ -37,7 +37,10 @@ namespace BusinessLayer.Concrete
         {
             return _commentDal.GetList();
         }
-
+        public List<Comment> GetCommentWithProduct(int id)
+        {
+            return _commentDal.GetList(x => x.Product.ProductID == id);
+        }
         public List<Comment> TGetList(int id)
         {
             throw new NotImplementedException();

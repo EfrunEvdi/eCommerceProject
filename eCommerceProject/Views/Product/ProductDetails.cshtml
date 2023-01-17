@@ -1,5 +1,5 @@
-﻿@using EntityLayer.Concrete
-@model List<Product>
+﻿@model IEnumerable< EntityLayer.Concrete.Product>
+
 
 @{
     ViewData["Title"] = "ProductDetails";
@@ -20,102 +20,95 @@
 </div>
 
 <div class="banner-bootom-w3-agileits py-5">
-			<div class="container py-md-5 py-4">
-				<div class="row">
-					<div class="col-lg-5 col-md-8 single-right-left ">
-						<div class="grid images_3_of_2">
-							<div class="flexslider">
-								<ul class="slides">
-							<li data-thumb="/web/images/si1.png">
-										<div class="thumb-image">
-											<img src="~/web/images/si1.png" data-imagezoom="true" class="img-fluid" alt="">
-										</div>
-									</li>
-							<li data-thumb="/web/images/si2.png">
-										<div class="thumb-image">
-									<img src="~/web/images/si2.png" data-imagezoom="true" class="img-fluid" alt="">
-										</div>
-									</li>
-							<li data-thumb="/web/images/si3.png">
-										<div class="thumb-image">
-									<img src="~/web/images/si3.png" data-imagezoom="true" class="img-fluid" alt="">
-										</div>
-									</li>
-								</ul>
-								<div class="clearfix"></div>
-							</div>
-						</div>
-					</div>
+    @foreach (var item1 in Model)
+            {
+    <div class="container py-md-5 py-4 ">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 single-right-left ">
+               @* @foreach (var item in Model)
+                        {*@
+                <div class="grid images_3_of_2">
+                    
+                    <div class="flexslider">
+                        
+                            <ul class="slides">
 
-					<div class="col-lg-7 single-right-left simpleCart_shelfItem">
-						<h3 class="mb-3">Redmi 9 Prime (Space Blue, 64 GB) (4 GB RAM)</h3>
-						<p class="mb-3">
-							<span class="item_price">$360.00</span>
-							<del class="mx-2 font-weight-light">$400.00</del>
-							<label>Free delivery</label>
-						</p>
-						<div class="single-infoagile">
-							<ul>
-								<li class="mb-3">
-									Cash on Delivery Eligible.
-								</li>
-								<li class="mb-3">
-									Shipping Speed to Delivery.
-								</li>
-								<li class="mb-3">
-									EMIs from $100/month.
-								</li>
-								<li class="mb-3">
-									Bank Offer Extra 5% off* with Axis Bank Buzz Credit Card
-								</li>
-							</ul>
-						</div>
-						<div class="product-single-w3l">
-							<p class="my-3">
-								<i class="far fa-hand-point-right mr-2"></i>
-								1 Year Manufacturer Warranty
-							<ul>
-								<li class="mb-1">
-									Handset, Power Adapter, USB Type-C Cable, SIM Eject Tool, Simple Protective Cover,
-									Warranty Card, User Guide
-								</li>
-								<li class="mb-1">
-									Full HD+ IPS Display
-								</li>
-								<li class="mb-1">
-									13MP Rear Camera | 8MP Front Camera
-								</li>
-								<li class="mb-1">
-									5020 mAh
-								</li>
-								<li class="mb-1">
-									2340 x 1080 Pixels
-								</li>
-							</ul>
-							<p class="my-sm-4 my-3">
-								<i class="far fa-hand-point-right mr-2"></i>Net banking & Credit/ Debit/ ATM card
-							</p>
-						</div>
-						<div class="occasion-cart">
-							<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-								<form action="#" method="post">
-									<fieldset>
-										<input type="hidden" name="cmd" value="_cart" />
-										<input type="hidden" name="add" value="1" />
-										<input type="hidden" name="business" value=" " />
-										<input type="hidden" name="item_name" value="Samsung Galaxy J7 Prime" />
-										<input type="hidden" name="amount" value="200.00" />
-										<input type="hidden" name="discount_amount" value="1.00" />
-										<input type="hidden" name="currency_code" value="USD" />
-										<input type="hidden" name="return" value=" " />
-										<input type="hidden" name="cancel_return" value=" " />
-										<input type="submit" name="submit" value="Add to cart" class="btn btn-style" />
-									</fieldset>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+                                <li data-thumb="@item1.ImageUrl1Product">
+                                    <div class="thumb-image">
+                                        <img src="@item1.ImageUrl1Product" data-imagezoom="true" class="img-fluid" alt="">
+                                    </div>
+                                </li>
+                                <li data-thumb="@item1.ImageUrl2Product" >
+                                    <div class="thumb-image">
+                                        <img src="@item1.ImageUrl2Product" data-imagezoom="true" class="img-fluid" alt="">
+                                    </div>
+                                </li>
+                                <li data-thumb="@item1.ImageUrl3Product" >
+                                    <div class="thumb-image">
+                                        <img src="@item1.ImageUrl3Product" data-imagezoom="true" class="img-fluid" alt="">
+                                    </div>
+                                </li>
+                            </ul>
+                        
+                        <div class="clearfix"></div>
+                    </div>
+                   
+                </div>
+                @*}*@
+            </div>
+            
+                <div class="col-lg-7 single-right-left simpleCart_shelfItem">
+                    <h3 class="mb-3">@item1.NameProduct / @item1.BrandProduct</h3>
+                    <p class="mb-3">
+                        <span class="item_price">@item1.PriceProduct</span>
+                        <del class="mx-2 font-weight-light">$400.00</del>
+                        <label>Free delivery</label>
+                    </p>
+                    <div class="single-infoagile">
+                        <ul>
+                            <li class="mb-3">
+                                @item1.DescriptionProduct
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="occasion-cart">
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                            <form action="#" method="post">
+                                <fieldset>
+                                    <input type="hidden" name="cmd" value="_cart" />
+                                    <input type="hidden" name="add" value="1" />
+                                    <input type="hidden" name="business" value=" " />
+                                    <input type="hidden" name="item_name" value="@item1.NameProduct" />
+                                    <input type="hidden" name="amount" value="@item1.PriceProduct" />
+                                    <input type="hidden" name="discount_amount" value="1.00" />
+                                    <input type="hidden" name="currency_code" value="USD" />
+                                    <input type="hidden" name="return" value=" " />
+                                    <input type="hidden" name="cancel_return" value=" " />
+                                    <input type="submit" name="submit" value="Sepete Ekle" class="btn btn-style" />
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-lg-5 col-md-8 single-right-left">
+                @await Component.InvokeAsync("CommentList", new {id=ViewBag.i})
+            </div>
+       @* Bir Yorum Bırakın buraya gelecek*@
+      
+             
+                
+        </div>
+      
+                @await Html.PartialAsync("~/Views/Comment/PartialAddComment.cshtml")
+            
+       
+    </div>
+    }
+</div>
+
 

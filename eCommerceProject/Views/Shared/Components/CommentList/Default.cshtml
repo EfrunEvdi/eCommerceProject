@@ -1,0 +1,32 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Comment>
+
+@*@item.Product.BuyTrader.ImageUrlTrader*@
+
+
+
+<div class="row" >
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-12">
+            <div class="card" style="margin-bottom:1rem;">
+
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size:14px; margin-bottom:0; ">@item.CommentUserName </h5>
+                    <p class="card-text" style="font-size:12px; margin-bottom:0.5rem; "> @(((DateTime)item.CommentDate).ToString("dd-MMM-yyyy"))</p>
+                    <p class="card-text" style="font-size:12px; ">@item.CommentContent</p>
+
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+<br />
+<br />
+
+
+
+
+
+
+

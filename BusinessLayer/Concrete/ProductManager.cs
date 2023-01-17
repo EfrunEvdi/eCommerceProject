@@ -38,12 +38,16 @@ namespace BusinessLayer.Concrete
 
         public List<Product> TGetList(int id)
         {
-            throw new NotImplementedException();
+            return _productDal.GetList(x => x.ProductID == id);
         }
         public List<Product> GetProductByGenre(int id)
         {
             return _productDal.GetList(x => x.GenreCategory.SubCategoryID == id);
         }
+        //public List<Product> GetProductByTrader(int id)
+        //{
+        //    return _productDal.GetList(x => x.BuyTraderID == id);
+        //}
 
         public void TUpdate(Product t)
         {
