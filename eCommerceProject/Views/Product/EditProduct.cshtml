@@ -1,0 +1,80 @@
+﻿@model EntityLayer.Concrete.Product
+
+@{
+    ViewData["Title"] = "EditProduct";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h3 class="mb-0">Ürün Güncelleme Tablosu</h3>
+</div>
+
+<form class="form-group " style="margin-left: 1rem; margin-right: 1rem;" method="post">
+
+    @*Aşağıdaki BeginForm tagine aksiyon, tablo, method tanımlaması yaptık.*@
+    @using (Html.BeginForm("EditProduct", "Product", FormMethod.Post))
+    {
+            <div style="margin-left:1rem; margin-right:1rem;">
+            @Html.HiddenFor(x=>x.ProductID) @*Hidden for gönderilen referanslar için kullanılır hide gizli anlamında referans göndermeden güncellenecek*@
+            @Html.HiddenFor(x=>x.SellTrader)
+            @Html.HiddenFor(x=>x.BuyTraderID)
+                <br />
+            @Html.Label("Ürün İsmi :") @*açıklama textareafor olacak*@
+            @Html.TextBoxFor(x=> x.NameProduct, new {@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.NameProduct,"",new{@class="text-danger", @style="font-size:12px;"})
+                <br />
+            @Html.Label("Ürün Açıklaması :") @*açıklama textareafor olacak*@
+            @Html.TextAreaFor(x=> x.DescriptionProduct, new {@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.DescriptionProduct,"",new{@class="text-danger", @style="font-size:12px;"})
+                <br />
+            @Html.Label("Ürün Markası :") @*açıklama textareafor olacak*@
+            @Html.TextAreaFor(x=> x.BrandProduct, new {@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.BrandProduct,"",new{@class="text-danger", @style="font-size:12px;"})
+                <br />
+            @Html.Label("Ürün Bedeni :") @*açıklama textareafor olacak*@
+            @Html.TextAreaFor(x=> x.SizeProduct, new {@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.SizeProduct,"",new{@class="text-danger", @style="font-size:12px;"})
+                <br />
+            @Html.Label("Ürün Fiyatı :") @*açıklama textareafor olacak*@
+            @Html.TextAreaFor(x=> x.PriceProduct, new {@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.PriceProduct,"",new{@class="text-danger", @style="font-size:12px;"})
+                <br />
+            @Html.Label("Ürün Düzenleme Tarihi :") @*açıklama textareafor olacak*@
+            @Html.TextAreaFor(x=> x.DateProduct, new {@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.DateProduct,"",new{@class="text-danger", @style="font-size:12px;"})
+                <br />
+            @Html.Label("Ürün Durumu :") @*açıklama textareafor olacak*@
+            @Html.TextAreaFor(x=> x.StatusProduct, new {@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.StatusProduct,"",new{@class="text-danger", @style="font-size:12px;"})
+                <br />
+            @Html.Label("Ürün Resmi 1 :") @*açıklama textareafor olacak*@
+            @Html.TextAreaFor(x=> x.ImageUrl1Product, new {@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.ImageUrl1Product,"",new{@class="text-danger", @style="font-size:12px;"})
+                <br />
+            @Html.Label("Ürün Resmi 2 :") @*açıklama textareafor olacak*@
+            @Html.TextAreaFor(x=> x.ImageUrl2Product, new {@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.ImageUrl2Product,"",new{@class="text-danger", @style="font-size:12px;"})
+                <br />
+            @Html.Label("Ürün Resmi 3 :") @*açıklama textareafor olacak*@
+            @Html.TextAreaFor(x=> x.ImageUrl3Product, new {@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.ImageUrl3Product,"",new{@class="text-danger", @style="font-size:12px;"})
+                <br />
+            @Html.Label("Ürün Resmi 4 :") @*açıklama textareafor olacak*@
+            @Html.TextAreaFor(x=> x.ImageUrl4Product, new {@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.ImageUrl4Product,"",new{@class="text-danger", @style="font-size:12px;"})
+                <br />
+            @Html.Label("Ürün Resmi 5 :") @*açıklama textareafor olacak*@
+            @Html.TextAreaFor(x=> x.ImageUrl5Product, new {@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.ImageUrl5Product,"",new{@class="text-danger", @style="font-size:12px;"})
+                <br />
+            @Html.Label("Ürün Resmi 6 :") @*açıklama textareafor olacak*@
+            @Html.TextAreaFor(x=> x.ImageUrl6Product, new {@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.ImageUrl6Product,"",new{@class="text-danger", @style="font-size:12px;"})
+                <br />
+            @Html.HiddenFor(x=>x.GenreCategoryID)
+                <button type="submit" class="btn btn-success">Güncelle</button>
+            </div>
+            <br />
+
+    }
+</form>

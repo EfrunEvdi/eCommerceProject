@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
@@ -70,7 +72,35 @@ namespace eCommerceProject.Controllers
 
         }
 
+        [HttpGet]
+        public IActionResult EditProduct(int id)
+        {
+            var values = pm.TGetByID(id);
+            pm.TUpdate(values);
+            return View(values);
+        }
 
+        [HttpPost]
+        public IActionResult EditProduct(Product product)
+        {
+            ProductValidator validations = new ProductValidator();
+            ValidationResult results = validations.Validate(product);
+
+            if (results.IsValid) //eğer giriş için olumsuz şart yoksa ekler
+            {
+                pm.TUpdate(product);
+                return RedirectToAction("ilanlarim", "Trader");//Ekledikten sonra tekrar listelemesini istediğimiz için yaptık
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);//Burada hata ismi ve mesajını alıp add sayfasına gönderdik
+                }
+            }
+            return View();
+
+        }
 
     }
 }
