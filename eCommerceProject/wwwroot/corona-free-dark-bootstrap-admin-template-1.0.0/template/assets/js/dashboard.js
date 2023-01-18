@@ -63,12 +63,10 @@
     }
     if ($("#transaction-history").length) {
       var areaData = {
-        labels: ["Paypal", "Stripe","Cash"],
+          labels: labelData,
         datasets: [{
-            data: [55, 25, 20],
-            backgroundColor: [
-              "#111111","#00d25b","#ffab00"
-            ]
+            data: dataSize,
+            backgroundColor: colors
           }
         ]
       };
@@ -102,7 +100,7 @@
           ctx.textBaseline = "middle";
           ctx.fillStyle = "#ffffff";
       
-          var text = "$1200", 
+              var text = "₺"+ totalPrice, 
               textX = Math.round((width - ctx.measureText(text).width) / 2),
               textY = height / 2.4;
       
@@ -115,7 +113,7 @@
           ctx.textBaseline = "middle";
           ctx.fillStyle = "#6c7293";
 
-          var texts = "Total", 
+              var texts = totalText, 
               textsX = Math.round((width - ctx.measureText(text).width) / 1.93),
               textsY = height / 1.7;
       

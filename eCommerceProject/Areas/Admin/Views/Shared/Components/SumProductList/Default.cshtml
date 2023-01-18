@@ -1,0 +1,33 @@
+﻿
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Toplam Kazanç</h4>
+        <canvas id="transaction-history" class="transaction-chart"></canvas>
+        <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+            <div class="text-md-center text-xl-left">
+                <h6 class="mb-1">Ürünleri Toplam Fiyatı</h6>
+                <p class="text-muted mb-0">Güncelleme Tarihi : @DateTime.Now.ToString("dd/MM/yyyy")</p>
+            </div>
+            <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                <h6 class="font-weight-bold mb-0">₺ @ViewBag.top1</h6>
+            </div>
+        </div>
+        <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+            <div class="text-md-center text-xl-left">
+                <h6 class="mb-1">Satıştaki Ürünleri Toplam Fiyatı</h6>
+                <p class="text-muted mb-0">Güncelleme Tarihi : @DateTime.Now.ToString("dd/MM/yyyy")</p>
+            </div>
+            <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                <h6 class="font-weight-bold mb-0">₺ @ViewBag.top2</h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var labelData = ["Satılmış", "Satılacak"];
+    var dataSize = [@ViewBag.top1, @ViewBag.top2];
+    var colors = ["#993300", "#009900"];
+    var totalPrice = @ViewBag.top1 + @ViewBag.top2;
+    var totalText = "Toplam";
+</script>

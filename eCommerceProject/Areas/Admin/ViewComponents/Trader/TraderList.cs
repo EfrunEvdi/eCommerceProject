@@ -3,10 +3,11 @@ using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Security.Cryptography.X509Certificates;
+using System.Net.WebSockets;
 
 namespace eCommerceProject.Areas.Admin.ViewComponents.Trader
 {
@@ -31,13 +32,6 @@ namespace eCommerceProject.Areas.Admin.ViewComponents.Trader
             ViewBag.value2 = context.Products.Where(x => x.StatusProduct == true).Count();
 
             ViewBag.value3 = context.Products.Where(x => x.StatusProduct == false).Count();
-
-            
-            //ViewBag.value4 = context.Products.Where(x => x.PriceProduct !=null).Sum();
-
-
-
-            //ViewBag.value4 = context.Products.Where(x => x.ProductID != null).Sum(x);
 
 
             return View();
