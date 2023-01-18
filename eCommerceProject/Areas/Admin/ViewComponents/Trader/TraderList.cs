@@ -32,9 +32,8 @@ namespace eCommerceProject.Areas.Admin.ViewComponents.Trader
 
             ViewBag.value3 = context.Products.Where(x => x.StatusProduct == false).Count();
 
-            //var price = context.Products.Where(x => x.PriceProduct != null);
-            //var anan = Convert.ToInt32(price);
-            //ViewBag.value4 = context.Products.Where(anan).Sum();
+            
+            //ViewBag.value4 = context.Products.Where(x => x.PriceProduct !=null).Sum();
 
 
 

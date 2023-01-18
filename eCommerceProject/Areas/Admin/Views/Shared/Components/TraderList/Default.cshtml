@@ -70,7 +70,17 @@
                         <div class="preview-item-content d-sm-flex flex-grow">
                             <div class="flex-grow">
                                 <h6 class="preview-subject">
-                                    juheghjyerth
+                                   @* @foreach (var item in Model)
+                                    {
+                                        int total = 0;
+                                        
+
+                                        for (int i = 0; i < Model.Count; i++)
+                                        {
+                                            total += Convert.ToInt32(item.PriceProduct);
+                                        }
+                                        @total;
+                                    }*@
                                 </h6>
                                 <p class="text-muted mb-0">Sent release details to team</p>
                             </div>

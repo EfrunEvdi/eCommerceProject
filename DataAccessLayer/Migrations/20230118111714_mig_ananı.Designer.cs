@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20230117144811_migsdfs")]
-    partial class migsdfs
+    [Migration("20230118111714_mig_ananı")]
+    partial class mig_ananı
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -134,8 +134,8 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("NameProduct")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PriceProduct")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal>("PriceProduct")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("SellTraderID")
                         .HasColumnType("int");
