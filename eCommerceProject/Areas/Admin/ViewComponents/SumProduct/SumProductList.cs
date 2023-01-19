@@ -17,8 +17,11 @@ namespace eCommerceProject.Areas.Admin.ViewComponents.SumProduct
 
         public IViewComponentResult Invoke()
         {
-            ViewBag.top1 = ((long)context.Products.Where(x => x.StatusProduct == false).Sum(y => y.PriceProduct));
+            ViewBag.top1 = ((long)context.Products.Where(x => x.BuyTraderID != null).Sum(y => y.PriceProduct));
             ViewBag.top2 = ((long)context.Products.Where(x => x.StatusProduct == true).Sum(y => y.PriceProduct));
+            //ViewBag.value2 = context.Products.Where(x => x.StatusProduct == true).Count();
+
+            ViewBag.Confirm = context.Products.Where(x => x.BuyTraderID == null && x.StatusProduct == false).Count();
             return View();
         }
     }

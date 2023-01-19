@@ -33,6 +33,7 @@ namespace eCommerceProject.Areas.Admin.ViewComponents.Trader
 
             ViewBag.value3 = context.Products.Where(x => x.StatusProduct == false).Count();
 
+            ViewBag.Confirm = context.Products.Where(x => x.BuyTraderID == null && x.StatusProduct == false).Count();
 
             return View();
         }

@@ -1,0 +1,77 @@
+﻿@using EntityLayer.Concrete
+@model List<Product>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Card header -->
+<div class="card-header border-0">
+    <h3 class="mb-0">Ürün Onay Paneli</h3>
+</div>
+<!-- Dark table -->
+
+<div class="table-responsive">
+
+    <table class="table align-items-center table-flush">
+
+        <thead class="thead-dark">
+            <tr>
+
+                <th scope="col" class="sort" data-sort="ProductID">#</th>
+                <th scope="col" class="sort" data-sort="NameProdcut">Ürün Başlığı : </th>
+                <th scope="col" class="sort" data-sort="BrandProduct">Ürünün Markası :</th>
+                <th scope="col" class="sort" data-sort="DescriptionProduct">Ürün Açıklaması :</th>
+                <th scope="col" class="sort" data-sort="SizeProduct">Ürünün Bedeni :</th>
+                <th scope="col" class="sort" data-sort="PriceProduct">Ürünün Fiyatı :</th>
+                <th scope="col" class="sort" data-sort="ImageUrl1Product">Ürünün 1. Resmi :</th>
+                <th scope="col" class="sort" data-sort="ImageUrl2Product">Ürünün 2. Resmi :</th>
+                <th scope="col" class="sort" data-sort="ImageUrl3Product">Ürünün 3. Resmi :</th>
+                <th scope="col" class="sort" data-sort="ImageUrl4Product">Ürünün 4. Resmi :</th>
+                <th scope="col" class="sort" data-sort="ImageUrl5Product">Ürünün 5. Resmi :</th>
+                <th scope="col" class="sort" data-sort="ImageUrl6Product">Ürünün 6. Resmi :</th>
+                <th scope="col" class="sort" data-sort="GenreCategoryID">Ürünün Ait Olduğu Kategori :</th>
+
+                <th scope="col" class="sort" data-sort="completion">Onayla</th>
+                <th scope="col">Reddet</th>
+
+            </tr>
+        </thead>
+
+        <tbody class="list">
+            @foreach (var item in Model)
+            {
+                if (item.BuyTraderID == null && item.StatusProduct == false)
+                {
+                    <tr>
+                        <th>@item.ProductID</th>
+                        <td class="budget">@item.NameProduct</td>
+                        <td class="budget">@item.BrandProduct</td>
+                        <td class="budget">@item.DescriptionProduct</td>
+                        <td class="budget">@item.SizeProduct</td>
+                        <td class="budget">@item.PriceProduct</td>
+                        <td class="budget"><img src="@item.ImageUrl1Product" alt="img1" width="500" height="600"></td>
+                        <td class="budget"><img src="@item.ImageUrl2Product" alt="img1" width="500" height="600"></td>
+                        <td class="budget"><img src="@item.ImageUrl3Product" alt="img1" width="500" height="600"></td>
+                        <td class="budget"><img src="@item.ImageUrl4Product" alt="img1" width="500" height="600"></td>
+                        <td class="budget"><img src="@item.ImageUrl5Product" alt="img1" width="500" height="600"></td>
+                        <td class="budget"><img src="@item.ImageUrl6Product" alt="img1" width="500" height="600"></td>
+                        <td class="budget">@item.GenreCategory.NameGenreCategory</td>
+
+                        <td> <a href="/Admin/Product/ConfirmProduct/@item.ProductID" class="btn btn-success">Onaylama Sayfasına git</a></td>
+                        <td> <a href="/Admin/Product/DeleteProduct/@item.ProductID" class="btn btn-danger">Sil</a></td>
+
+                    </tr>
+                }
+
+
+
+            }
+        </tbody>
+
+    </table>
+
+</div>
+
+

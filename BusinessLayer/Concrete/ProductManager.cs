@@ -44,6 +44,11 @@ namespace BusinessLayer.Concrete
         {
             return _productDal.GetList(x => x.GenreCategory.SubCategoryID == id);
         }
+
+        public List<Product> GetProductListWithSub()
+        {
+            return _productDal.ProductListBySub();
+        }
         //public List<Product> GetProductByTrader(int id)
         //{
         //    return _productDal.GetList(x => x.BuyTraderID == id);
