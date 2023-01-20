@@ -1,9 +1,18 @@
-﻿<div class="comment-top">
+﻿@using EntityLayer.Concrete
+@model List<Product>
+
+<div class="comment-top">
     <div class="card" style="width: 100%;">
         <ul class="list-group list-group-flush">
             <li class="list-group-item text-center"><b>Ürünü beğendin mi?</b></li>
             <form action="/Comment/PartialAddComment/" method="post">
             <li class="list-group-item">
+                    @foreach (var item in Model)
+                    {
+                        var pID = item.ProductID;
+                    <input class="form-control" type="hidden" name="pID" value="@item.ProductID" asp-for="@item.ProductID">
+                    }
+
                 <input class="form-control" type="text" name="CommentUserName" placeholder="İsim Soyisim" required="">
                 <textarea class="form-control" name="CommentContent" placeholder="Yorum yap ve ürünü kap..." required=""></textarea>
                 <br />

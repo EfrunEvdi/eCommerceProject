@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using eCommerceProject.Models;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -14,6 +15,8 @@ namespace eCommerceProject.Controllers
     public class HomeController : Controller
     {
         ProductManager pm = new ProductManager(new EfProductRepository());
+        CommentManager cm = new CommentManager(new EfCommentRepository());
+
         public IActionResult Index()
         {
             var values = pm.TGetList();
@@ -27,6 +30,4 @@ namespace eCommerceProject.Controllers
             return View(values);
         }
     }
-
-    
 }
