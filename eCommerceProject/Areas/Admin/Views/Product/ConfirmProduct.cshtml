@@ -20,66 +20,73 @@
 
             @Html.Label("Ürün İsmi :")
             <br />
-            @Html.DisplayFor(x=> x.NameProduct, new {@class="form-control"})
+            @Html.TextBoxFor(x=> x.NameProduct, new {@class="form-control",disabled="disabled"})
+            
             <br />
 
 
             @Html.Label("Ürün Açıklaması :")
             <br />
-            @Html.DisplayFor(x=> x.DescriptionProduct, new {@class="form-control"})
+            @Html.TextBoxFor(x=> x.DescriptionProduct, new {@class="form-control",disabled="disabled"})
             <br />
 
             @Html.Label("Ürün Markası :")
             <br />
-            @Html.DisplayFor(x=> x.BrandProduct, new {@class="form-control"})
+            @Html.TextBoxFor(x=> x.BrandProduct, new {@class="form-control",disabled="disabled"})
             <br />
 
             @Html.Label("Ürün Bedeni :")
             <br />
-            @Html.DisplayFor(x=> x.SizeProduct, new {@class="form-control"})
+            @Html.TextBoxFor(x=> x.SizeProduct, new {@class="form-control",disabled="disabled"})
             <br />
             @Html.Label("Ürün Fiyatı :")
             <br />
 
 
-            @Html.DisplayFor(x=> x.PriceProduct, new {@class="form-control"})
+            @Html.TextBoxFor(x=> x.PriceProduct, new {@class="form-control",disabled="disabled"})
             <br />
             @Html.Label("Ürün Düzenleme Tarihi :")
             <br />
 
 
-            @Html.DisplayFor(x=> x.DateProduct, new {@class="form-control"})
+            @Html.TextBoxFor(x=> x.DateProduct, new {@class="form-control",disabled="disabled"})
             <br />
 
 
             @Html.Label("Ürün Resmi 1 :")
             <br />
-            @Html.DisplayFor(x=> x.ImageUrl1Product, new {@class="form-control"})
+            <img src="@Html.DisplayFor(x=> x.ImageUrl1Product, new {@class="form-control",disabled="disabled"})">
+
             <br />
 
             @Html.Label("Ürün Resmi 2 :")
             <br />
-            @Html.DisplayFor(x=> x.ImageUrl2Product, new {@class="form-control"})
+            <img src="@Html.DisplayFor(x=> x.ImageUrl2Product, new {@class="form-control",disabled="disabled"})">
+
             <br />
 
             @Html.Label("Ürün Resmi 3 :")
             <br />
-            @Html.DisplayFor(x=> x.ImageUrl3Product, new {@class="form-control"})
+            <img src="@Html.DisplayFor(x=> x.ImageUrl3Product, new {@class="form-control",disabled="disabled"})">
+
             <br />
 
             @Html.Label("Ürün Resmi 4 :")
             <br />
-            @Html.DisplayFor(x=> x.ImageUrl4Product, new {@class="form-control"})
+            <img src="@Html.DisplayFor(x=> x.ImageUrl4Product, new {@class="form-control",disabled="disabled"})">
+
             <br />
 
             @Html.Label("Ürün Resmi 5 :")
             <br />
-            @Html.DisplayFor(x=> x.ImageUrl5Product, new {@class="form-control"})
+            <img src="@Html.DisplayFor(x=> x.ImageUrl5Product, new {@class="form-control",disabled="disabled"})">
+           
             <br />
 
             @Html.Label("Ürün Resmi 6 :")
             <br />
-            @Html.DisplayFor(x=> x.ImageUrl6Product, new {@class="form-control"})
+            <img src="@Html.DisplayFor(x=> x.ImageUrl6Product, new {@class="form-control",disabled="disabled"})">
+
             <br />
 
             @Html.Label("Ürün Durumu :")

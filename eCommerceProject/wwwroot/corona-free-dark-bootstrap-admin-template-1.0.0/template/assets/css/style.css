@@ -21132,4 +21132,8 @@ div.tagsinput {
   -webkit-flex-grow: 1;
   flex-grow: 1; }
 
-/*# sourceMappingURL=maps/style.css.map */
+.form-control:disabled {
+    color:white!important;
+    background:black!important;
+    cursor:not-allowed;
+}
