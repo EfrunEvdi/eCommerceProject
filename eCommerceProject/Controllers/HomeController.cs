@@ -19,5 +19,14 @@ namespace eCommerceProject.Controllers
             var values = pm.TGetList();
             return View(values);
         }
+
+        public IActionResult ProductDetails(int id)
+        {
+            ViewBag.i = id;
+            var values = pm.TGetList(id);
+            return View(values);
+        }
     }
+
+    
 }

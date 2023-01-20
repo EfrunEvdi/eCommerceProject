@@ -1,0 +1,101 @@
+﻿@model IEnumerable< EntityLayer.Concrete.Product>
+
+@{
+    ViewData["Title"] = "ProductDetails";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="page-head_agile_info_w3l inner-checkout-page">
+    <div class="container py-5">
+        @foreach (var item in Model)
+        {
+            <h3 class="title-style text-white pt-5"><span>@item.NameProduct</span> Ürün Detayı</h3>
+            <ul class="w3_short pt-3 pb-5">
+                <li>
+                    <a href="/Home/Index/" class="text-white">Ana Sayfa</a>
+                    <i class="fa fa-angle-right mx-2 text-white" aria-hidden="true"></i>
+                </li>
+                <li class="text-light">Ürün Detay</li>
+            </ul>
+        }
+    </div>
+</div>
+
+<div class="banner-bootom-w3-agileits py-5">
+    @foreach (var item1 in Model)
+    {
+        <div class="container py-md-5 py-4 ">
+            <div class="row">
+                <div class="col-lg-4 col-md-2 single-right-left ">
+                    <div class="grid images_3_of_2">
+                        <div class="flexslider">
+                            <ul class="slides">
+                                <li data-thumb="@item1.ImageUrl1Product">
+                                    <div class="thumb-image">
+                                        <img src="@item1.ImageUrl1Product" data-imagezoom="true" class="img-fluid" alt="">
+                                    </div>
+                                </li>
+                                <li data-thumb="@item1.ImageUrl2Product">
+                                    <div class="thumb-image">
+                                        <img src="@item1.ImageUrl2Product" data-imagezoom="true" class="img-fluid" alt="">
+                                    </div>
+                                </li>
+                                <li data-thumb="@item1.ImageUrl3Product">
+                                    <div class="thumb-image">
+                                        <img src="@item1.ImageUrl3Product" data-imagezoom="true" class="img-fluid" alt="">
+                                    </div>
+                                </li>
+                                <li data-thumb="@item1.ImageUrl4Product">
+                                    <div class="thumb-image">
+                                        <img src="@item1.ImageUrl4Product" data-imagezoom="true" class="img-fluid" alt="">
+                                    </div>
+                                </li>
+                                <li data-thumb="@item1.ImageUrl5Product">
+                                    <div class="thumb-image">
+                                        <img src="@item1.ImageUrl5Product" data-imagezoom="true" class="img-fluid" alt="">
+                                    </div>
+                                </li>
+                                <li data-thumb="@item1.ImageUrl6Product">
+                                    <div class="thumb-image">
+                                        <img src="@item1.ImageUrl6Product" data-imagezoom="true" class="img-fluid" alt="">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 single-right-left simpleCart_shelfItem">
+                    <div class="card text-center mb-3" style="width:inherit;height:100%">
+                        <div class="card-body">
+                            <h5 class="card-title"> <b>@item1.NameProduct / @item1.BrandProduct</b></h5>
+                            <p class="card-text"> <div class="single-infoagile"><br /><br />@item1.DescriptionProduct </div></p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><br /><br /><b>Beden : </b>@item1.SizeProduct</li>
+                                <li class="list-group-item"><br /><br /><b>Fiyat : </b>@item1.PriceProduct</li>
+                                <li class="list-group-item">
+                                    <br /><br />
+                                    <div class="occasion-cart">
+                                        <a href="#" class="btn btn-primary">Satın Al!</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            @*<div class="row">*@
+            @*<div class="col-lg-5 col-md-8 single-right-left">*@
+            @await Component.InvokeAsync("CommentList", new {id=ViewBag.i})
+            @*</div>*@
+            @* Bir Yorum Bırakın buraya gelecek*@
+            @*</div>*@
+            @await Html.PartialAsync("~/Views/Comment/PartialAddComment.cshtml")
+
+        </div>
+    }
+</div>
+
+

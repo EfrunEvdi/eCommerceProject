@@ -6,54 +6,34 @@
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
-
 <div class="product-sec1 px-lg-4 mb-3">
     <div class="row">
         @foreach (var item in Model)
         {
-            <div class="col-md-4 product-men mb-3">
-                <div class="men-pro-item simpleCart_shelfItem">
-                    <div class="men-thumb-item text-center">
-                        <img src="@item.ImageUrl1Product" alt="" class="img-fluid">
-                        <div class="men-cart-pro">
-                            <div class="inner-men-cart-pro">
-                                <a href="single.html" class="link-product-add-cart">
-                                    İncele
-                                </a>
+            if (item.BuyTraderID == null && item.StatusProduct == true)
+            {
+                <div class="col-md-4 product-men mb-3">
+                    <div class="men-pro-item simpleCart_shelfItem">
+                        <div class="men-thumb-item text-center">
+                            <img src="@item.ImageUrl1Product" alt="" class="img-fluid" style="height: 100%">
+                            <div class="men-cart-pro"></div>
+                        </div>
+                        <div class="item-info-product text-center mt-2">
+                            <h4 class="pt-1">
+                                <a href="single.html">@item.NameProduct</a>
+                            </h4>
+                            <div class="info-product-price">
+                                <span class="item_price">@item.PriceProduct</span>
                             </div>
-                        </div>
-                    </div>
-                    <div class="item-info-product text-center mt-2">
-                        <h4 class="pt-1">
-                            <a href="single.html">@item.NameProduct</a>
-                        </h4>
-                        <div class="info-product-price">
-                            <span class="item_price">@item.PriceProduct</span>
-                            @*<del>$280.00</del>*@
-                        </div>
-                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                            <form action="#" method="post">
-                                <fieldset>
-                                    <input type="hidden" name="cmd" value="_cart" />
-                                    <input type="hidden" name="add" value="1" />
-                                    <input type="hidden" name="business" value=" " />
-                                    <input type="hidden" name="item_name"
-                                       value="@item.NameProduct" />
-                                    <input type="hidden" name="amount" value="200.00" />
-                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                    <input type="hidden" name="currency_code" value="USD" />
-                                    <input type="hidden" name="return" value=" " />
-                                    <input type="hidden" name="cancel_return" value=" " />
-                                    <input type="submit" name="submit" value="Detaya Git"
-                                       class="btn btn-style btn-style-secondary mt-3" />
-                                </fieldset>
-                            </form>
+
+                            <a href="/Home/ProductDetails/@item.ProductID" class="btn btn-primary">Detaya Git</a>
                         </div>
                     </div>
                 </div>
-            </div>
+            }
         }
     </div>
 </div>
+
 
 
