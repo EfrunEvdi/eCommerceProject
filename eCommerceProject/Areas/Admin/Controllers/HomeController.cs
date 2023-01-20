@@ -4,7 +4,7 @@ namespace eCommerceProject.Areas.Admin.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Indexx()
         {
             return View();
         }

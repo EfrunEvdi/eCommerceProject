@@ -28,12 +28,15 @@ namespace eCommerceProject.Controllers
             //ViewBag.v1 = "Deneyim Ekleme";//ViewBag ile gönderdiğimiz değer sayfaya aktarılır istenilen yerde kullanılır. AddSkill sayfasına.
             //ViewBag.v2 = "Deneyimler";
             //ViewBag.v3 = "Deneyim Ekleme";
-            GenreCategoryManager gc = new GenreCategoryManager(new EfGenreCategoryRepository());
-            List<SelectListItem> categoryvalues = (from x in gc.TGetList(id)
+            GenreCategoryManager gcm = new GenreCategoryManager(new EfGenreCategoryRepository());
+
+
+            List<SelectListItem> categoryvalues = (from x in gcm.TGetList(id)
                                                    select new SelectListItem
                                                    {
                                                        Text = x.NameGenreCategory,
                                                        Value = x.GenreCategoryID.ToString(),
+
 
                                                    }).ToList();
 
@@ -44,34 +47,36 @@ namespace eCommerceProject.Controllers
         [HttpPost]
         public IActionResult ProductAdd(Product product)
         {
-            product.StatusProduct = false;
-            pm.TAdd(product);
-            return RedirectToAction("Index");
-        }
 
+            //ProductValidator validations = new ProductValidator();
+            //ValidationResult results = validations.Validate(product);
+
+            //if (results.IsValid) //eğer giriş için olumsuz şart yoksa ekler
+            //{
+
+            pm.TAdd(product);
+            return RedirectToAction("Product", "Index");//Ekledikten sonra tekrar listelemesini istediğimiz için yaptık
+            //}
+            //else
+            //{
+            //    foreach (var item in results.Errors)
+            //    {
+            //        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);//Burada hata ismi ve mesajını alıp add sayfasına gönderdik
+            //    }
+            //}
+            //return View();
+
+
+
+        }
         public IActionResult ProductDetails(int id)
         {
             ViewBag.i = id;
             var values = pm.TGetList(id);
             return View(values);
         }
-        public IActionResult Test(int id)
-        {
 
-            SubCategoryManager scm = new SubCategoryManager(new EfSubCategoryRepository());
-            GenreCategoryManager gcm = new GenreCategoryManager(new EfGenreCategoryRepository());
-            var subCategory = scm.TGetByID(id);
-            //var genreCategory = gcm.TGetByID(id);
-            if (subCategory.SubCategoryID == id)
-            {
-
-                var values = pm.GetProductByGenre(id);
-                return View(values);
-            }
-            else { return View(); }
-
-
-        }
+        
 
         [HttpGet]
         public IActionResult EditProduct(int id)

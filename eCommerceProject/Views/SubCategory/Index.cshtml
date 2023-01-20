@@ -3,14 +3,17 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
+<div class="container my-5" style="display:flex; justify-content:center; align-items:start; width:25rem;">
+    <table class="table table-bordered">
+        <tr><th>Kategoriler</th> </tr>
 
-<table class="table table-bordered">
-    <tr><th>Kategoriler</th> </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><a href="/Product/ProductAdd/@item.SubCategoryID">@item.NameSubCategory</a></td>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td><a href="/Product/ProductAdd/@item.SubCategoryID">@item.NameSubCategory</a></td>
-        </tr>
-    }
-</table>
+            </tr>
+        }
+    </table>
+</div>
+

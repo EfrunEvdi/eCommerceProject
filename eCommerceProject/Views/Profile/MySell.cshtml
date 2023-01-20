@@ -1,10 +1,10 @@
 ﻿@using EntityLayer.Concrete
 @model List<Product>
-
 @{
-    ViewData["Title"] = "aldiklarim";
+    ViewData["Title"] = "MySell";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
+
 
 <div class="ads-grid py-sm-5 py-4">
     <div class="container py-xl-4 py-lg-2">
@@ -21,15 +21,15 @@
                 <div class="side-bar p-sm-4 p-3">
                     <!-- reviews -->
                     <div class="customer-rev left-side py-2">
-                        <h3 class="agileits-sear-head mb-3"><a href="/Trader/ilanlarim">İLANLARIM</a></h3>
+                        <h3 class="agileits-sear-head mb-3"><a href="/Profile/MyAdverts">İLANLARIM</a></h3>
                     </div>
 
                     <div class="range py-2">
-                        <h3 class="agileits-sear-head mb-3"><a href="/Trader/aldiklarim">ALDIKLARIM</a></h3>
+                        <h3 class="agileits-sear-head mb-3"><a href="/Profile/MyGet">ALDIKLARIM</a></h3>
                     </div>
 
                     <div class="left-side py-2">
-                        <h3 class="agileits-sear-head mb-3"><a href="/Trader/sattiklarim">SATTIKLARIM</a></h3>
+                        <h3 class="agileits-sear-head mb-3"><a href="/Profile/MySell">SATTIKLARIM</a></h3>
                     </div>
 
                     <div class="left-side py-2">
@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="left-side py-2">
-                        <h3 class="agileits-sear-head mb-3"><a href="/Profile/profilim">PROFİLİM</a></h3>
+                        <h3 class="agileits-sear-head mb-3"><a href="/Profile/MyProfile">PROFİLİM</a></h3>
                     </div>
 
                     <div class="left-side py-2">
@@ -53,7 +53,7 @@
                         <div class="row">
                             @foreach (var item in Model)
                             {
-                                @if (item.BuyTraderID == 3 && item.StatusProduct == false)
+                                @if (item.SellTraderID == 3 && item.StatusProduct == false)
                                 {
                                     <div class="col-md-4 product-men mt-md-0 mt-5">
                                         <div class="men-pro-item simpleCart_shelfItem">
@@ -105,4 +105,5 @@
         </div>
     </div>
 </div>
+
 

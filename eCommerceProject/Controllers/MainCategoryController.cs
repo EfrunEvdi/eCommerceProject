@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eCommerceProject.Controllers
 {
-    public class MainController : Controller
+    public class MainCategoryController : Controller
     {
         MainCategoryManager mcm = new MainCategoryManager(new EfMainCategoryRepository());
         public IActionResult Index()
