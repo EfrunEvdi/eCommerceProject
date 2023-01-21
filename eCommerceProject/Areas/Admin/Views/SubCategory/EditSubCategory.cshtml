@@ -17,16 +17,16 @@
             @Html.HiddenFor(x=>x.SubCategoryID )
             <br />
             @Html.Label("Ara Kategori İsmi :")
-            @Html.TextBoxFor(x=> x.NameSubCategory, new {@class="form-control"})
+            @Html.TextBoxFor(x=> x.NameSubCategory, new {@class="form-control", @required="true"})
             @Html.ValidationMessageFor(x=>x.NameSubCategory,"",new{@class="text-danger", @style="font-size:12px;"})
             <br />
             @Html.Label("Ara Kategori Resmi :")
-            @Html.TextAreaFor(x=> x.ImageUrlSubCategory,4,2 ,new {@class="form-control"})
+            @Html.TextAreaFor(x=> x.ImageUrlSubCategory,4,2 ,new {@class="form-control", @required="true"})
             @Html.ValidationMessageFor(x=>x.ImageUrlSubCategory,"",new{@class="text-danger", @style="font-size:12px;"})
             <br />
 
             @Html.Label("Bağlı Olduğu Ana Kategori :")
-            @Html.DropDownListFor(x=>x.MainCategoryID,(List<SelectListItem>)ViewBag.cv,new{@class="form-control"})
+            @Html.DropDownListFor(x=>x.MainCategoryID,(List<SelectListItem>)ViewBag.cv,"Bağlı Olduğu Ana Kategoriyi Seçiniz...",new{@class="form-control", @required="true"})
             @Html.ValidationMessageFor(x=>x.MainCategoryID,"",new{@class="text-danger", @style="font-size:12px;"})
 
             <br />

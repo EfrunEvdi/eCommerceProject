@@ -17,13 +17,13 @@
         <div style="margin-left:1rem; margin-right:1rem;">
             @Html.HiddenFor(x=>x.MainCategoryID ) @*Hidden for gönderilen referanslar için kullanılır hide gizli anlamında referans göndermeden güncellenecek*@
             <br />
-            @Html.Label("Ana Kategory İsmi :") @*açıklama textareafor olacak*@
+            @Html.Label("Ana Kategori İsmi :") @*açıklama textareafor olacak*@
             @Html.TextBoxFor(x=> x.NameMainCategory, new {@class="form-control"})
             @Html.ValidationMessageFor(x=>x.NameMainCategory,"",new{@class="text-danger", @style="font-size:12px;"})
             <br />
-            @Html.Label("İsim :") @*açıklama textareafor olacak*@
+            @Html.Label("Ana Kategori Resmi :") @*açıklama textareafor olacak*@
             @Html.TextAreaFor(x=> x.ImageUrlMainCategory,4,2 ,new {@class="form-control"})
-            @Html.ValidationMessageFor(x=>x.ImageUrlMainCategory,"",new{@class="text-danger", @style="font-size:12px;"})
+            @Html.ValidationMessageFor(x=>x.ImageUrlMainCategory,"",new{@class="text-danger", @required="true", @style="font-size:12px;"})
             <br />
             <button type="submit" class="btn btn-success">Güncelle</button>
         </div>

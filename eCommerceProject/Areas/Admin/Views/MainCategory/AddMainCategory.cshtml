@@ -14,14 +14,14 @@
     @using (Html.BeginForm("AddMainCategory", "MainCategory", FormMethod.Post))
     {
         @Html.Label("Ana Kategori İsmi : ")
-        @Html.TextBoxFor(x => x.NameMainCategory, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.NameMainCategory)
+        @Html.TextBoxFor(x => x.NameMainCategory, new { @class = "form-control"})
+        @Html.ValidationMessageFor(x => x.NameMainCategory,"",new{@class="text-danger", @style="font-size:12px;"})
 
         <br />
 
         @Html.Label("Ana Kategori Resmi : ")
-        @Html.TextBoxFor(x => x.ImageUrlMainCategory, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.ImageUrlMainCategory)
+        @Html.TextBoxFor(x => x.ImageUrlMainCategory, new { @class = "form-control"})
+        @Html.ValidationMessageFor(x => x.ImageUrlMainCategory,"",new{@class="text-danger", @style="font-size:12px;"})
 
         <br />
 

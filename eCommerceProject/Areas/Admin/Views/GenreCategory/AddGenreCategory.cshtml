@@ -14,23 +14,23 @@
     @using (Html.BeginForm("AddGenreCategory", "GenreCategory", FormMethod.Post))
     {
         @Html.Label("Tür Kategori İsmi : ")
-        @Html.TextBoxFor(x => x.NameGenreCategory, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.NameGenreCategory)
+        @Html.TextBoxFor(x => x.NameGenreCategory, new { @class = "form-control", @required="true" })
+        @Html.ValidationMessageFor(x => x.NameGenreCategory,"",new{@class="text-danger", @style="font-size:12px;"})
 
-            <br />
+        <br />
 
         @Html.Label("Tür Kategori Resmi : ")
-        @Html.TextBoxFor(x => x.ImageUrlGenreCategory, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.ImageUrlGenreCategory)
+        @Html.TextBoxFor(x => x.ImageUrlGenreCategory, new { @class = "form-control", @required="true" })
+        @Html.ValidationMessageFor(x => x.ImageUrlGenreCategory,"",new{@class="text-danger", @style="font-size:12px;"})
 
-            <br />
+        <br />
 
-        @Html.Label("Bağlı Olduğu Ana Kategori :")
-        @Html.DropDownListFor(x=>x.SubCategoryID,(List<SelectListItem>)ViewBag.cv,new{@class="form-control"})
+        @Html.Label("Bağlı Olduğu Ara Kategori :")
+        @Html.DropDownListFor(x=>x.SubCategoryID,(List<SelectListItem>)ViewBag.cv,"Bağlı Olduğu Ara Kategoriyi Seçiniz...",new{@class="form-control", @required="true"})
         @Html.ValidationMessageFor(x=>x.SubCategoryID,"",new{@class="text-danger", @style="font-size:12px;"})
 
 
-            <button class="btn btn-info">Yazıyı Kaydet</button>
+        <button class="btn btn-info">Yazıyı Kaydet</button>
     }
 
 </form>

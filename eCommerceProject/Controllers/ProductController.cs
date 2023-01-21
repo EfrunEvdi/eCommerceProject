@@ -3,9 +3,12 @@ using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Policy;
 
@@ -47,15 +50,15 @@ namespace eCommerceProject.Controllers
         [HttpPost]
         public IActionResult ProductAdd(Product product)
         {
-
             //ProductValidator validations = new ProductValidator();
             //ValidationResult results = validations.Validate(product);
 
             //if (results.IsValid) //eğer giriş için olumsuz şart yoksa ekler
             //{
-
+            product.SellTraderID = 3;
             pm.TAdd(product);
-            return RedirectToAction("Product", "Index");//Ekledikten sonra tekrar listelemesini istediğimiz için yaptık
+            return RedirectToAction("MySell", "Profile");//Ekledikten sonra tekrar listelemesini istediğimiz için yaptık
+
             //}
             //else
             //{
@@ -65,13 +68,7 @@ namespace eCommerceProject.Controllers
             //    }
             //}
             //return View();
-
-
-
         }
-        
-
-        
 
         [HttpGet]
         public IActionResult EditProduct(int id)

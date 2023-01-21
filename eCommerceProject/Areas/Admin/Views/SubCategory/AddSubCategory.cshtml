@@ -6,27 +6,27 @@
 }
 
 <div class="card-header border-0">
-    <h3 class="mb-0">Ara Kategori Ekleme Tablosu</h3>
+    <h3 class="mb-0">Alt Kategori Ekleme Tablosu</h3>
 </div>
 
 <form class="form-group " style="margin-left: 1rem; margin-right: 1rem;" method="post">
 
     @using (Html.BeginForm("AddSubCategory", "SubCategory", FormMethod.Post))
     {
-        @Html.Label("Ara Kategori İsmi : ")
-        @Html.TextBoxFor(x => x.NameSubCategory, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.NameSubCategory)
+        @Html.Label("Alt Kategori İsmi : ")
+        @Html.TextBoxFor(x => x.NameSubCategory, new { @class = "form-control", @required="true"})
+        @Html.ValidationMessageFor(x => x.NameSubCategory,"",new{@class="text-danger", @style="font-size:12px;"})
 
         <br />
 
-        @Html.Label("Ara Kategori Resmi : ")
-        @Html.TextBoxFor(x => x.ImageUrlSubCategory, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.ImageUrlSubCategory)
+        @Html.Label("Alt Kategori Resmi : ")
+        @Html.TextBoxFor(x => x.ImageUrlSubCategory, new { @class = "form-control", @required="true"})
+        @Html.ValidationMessageFor(x => x.ImageUrlSubCategory,"",new{@class="text-danger", @style="font-size:12px;"})
 
         <br />
 
         @Html.Label("Bağlı Olduğu Ana Kategori :")
-        @Html.DropDownListFor(x=>x.MainCategoryID,(List<SelectListItem>)ViewBag.cv,new{@class="form-control"})
+        @Html.DropDownListFor(x=>x.MainCategoryID,(List<SelectListItem>)ViewBag.cv,"Ana Kategori Seçiniz...",new{@class="form-control", @required="true"})
         @Html.ValidationMessageFor(x=>x.MainCategoryID,"",new{@class="text-danger", @style="font-size:12px;"})
 
 
