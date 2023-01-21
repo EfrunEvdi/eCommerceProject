@@ -77,26 +77,14 @@
                                                 </h4>
                                                 <div class="info-product-price">
                                                     <span class="item_price">@item.PriceProduct</span>
-                                                    <del>(@item.PriceProduct)</del>
                                                 </div>
                                                 <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                                    <form action="/Product/ProductDetails" method="post">
-                                                        <fieldset>
-                                                            @*<input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name"
-                                                    value="Samsung Galaxy F62  " />
-                                                    <input type="hidden" name="amount" value="@item.PriceProduct" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="TRY" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />*@
-                                                            <button type="submit" name="submit" value="Detaya Git"
-                                                            class="btn btn-style btn-style-secondary mt-3">
-                                                                Detaya Git
-                                                            </button>
-                                                        </fieldset>
+                                                    <form action="/Home/ProductDetails/@item.ProductID" method="post">
+
+                                                        <button type="submit" name="submit" value="Detaya Git"
+                                                        class="btn btn-style btn-style-secondary mt-3">
+                                                            Detaya Git
+                                                        </button>
                                                     </form>
                                                 </div>
                                             </div>
