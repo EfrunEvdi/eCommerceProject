@@ -9,12 +9,10 @@
     <div class="container py-5">
         @foreach (var item in Model)
         {
-            var anan = item.ProductID;
-
-            <h3 class="title-style text-white pt-5"><span>@item.NameProduct</span> Ürün Detayı</h3>
+            <h3 class="title-style text-white pt-5">@item.NameProduct</h3>
             <ul class="w3_short pt-3 pb-5">
                 <li>
-                    <a href="/Home/Index/" class="text-white">Ana Sayfa</a>
+                    <a href="/" class="text-white">Ana Sayfa</a>
                     <i class="fa fa-angle-right mx-2 text-white" aria-hidden="true"></i>
                 </li>
                 <li class="text-light">Ürün Detay</li>
@@ -23,12 +21,14 @@
     </div>
 </div>
 
-<div class="banner-bootom-w3-agileits py-5">
-    @foreach (var item1 in Model)
-    {
-        <div class="container py-md-5 py-4 ">
+
+
+@foreach (var item1 in Model)
+{
+    <div class="banner-bootom-w3-agileits pt-5">
+        <div class="container py-md-5 pt-4">
             <div class="row">
-                <div class="col-lg-4 col-md-2 single-right-left ">
+                <div class="col-lg-5 col-md-8 single-right-left ">
                     <div class="grid images_3_of_2">
                         <div class="flexslider">
                             <ul class="slides">
@@ -62,32 +62,52 @@
                                         <img src="@item1.ImageUrl6Product" data-imagezoom="true" class="img-fluid" alt="">
                                     </div>
                                 </li>
+
                             </ul>
+                            <div class="clearfix"></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-8 single-right-left simpleCart_shelfItem">
-                    <div class="card text-center mb-3" style="width:inherit;height:100%">
-                        <div class="card-body">
-                            <h5 class="card-title"> <b>@item1.NameProduct / @item1.BrandProduct</b></h5>
-                            <p class="card-text"> <div class="single-infoagile"><br /><br />@item1.DescriptionProduct </div></p>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><br /><br /><b>Beden : </b>@item1.SizeProduct</li>
-                                <li class="list-group-item"><br /><br /><b>Fiyat : </b>@item1.PriceProduct</li>
-                                <li class="list-group-item">
-                                    <br /><br />
-                                    <div class="occasion-cart">
-                                        <a href="#" class="btn btn-primary">Satın Al!</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <div class="col-lg-7 single-right-left simpleCart_shelfItem">
+                    <h3 class="mb-3">@item1.NameProduct (@item1.BrandProduct)</h3>
+                    <p class="mb-3">
+                        <span class="item_price">@item1.PriceProduct TL</span>
+                    </p>
 
+                    <div class="product-single-w3l">
+                        <p class="my-3">
+                            <i class="far fa-hand-point-right mr-2"></i>
+                            Detaylar
+                        <p class="my-sm-4 my-3">@item1.DescriptionProduct</p>
+                    </div>
+                    <div class="single-infoagile">
+                        <ul>
+                            <li class="mb-3">
+                                Beden: @item1.SizeProduct
+                            </li>
+                            <li class="mb-3">
+                                Ekleme Tarihi: @item1.DateProduct
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="occasion-cart">
+                        <a href="#" class="btn btn-primary">Satın Al!</a>
+                    </div>
+
+                </div>
             </div>
+        </div>
+    </div>
+  
+}
 
+
+
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- //Single Page -->
             @*<div class="row">*@
             @*<div class="col-lg-5 col-md-8 single-right-left">*@
             @await Component.InvokeAsync("CommentList", new {id=ViewBag.i})
@@ -95,9 +115,7 @@
             @* Bir Yorum Bırakın buraya gelecek*@
             @*</div>*@
             @await Html.PartialAsync("~/Views/Comment/PartialAddComment.cshtml")
-
         </div>
-    }
+    </div>
 </div>
-
 

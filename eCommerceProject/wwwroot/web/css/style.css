@@ -999,6 +999,10 @@ h3.tittle-w3l {
 .men-thumb-item {
     position: relative;
 }
+.men-thumb-item img {
+    height: 200px;
+    object-fit: cover;
+}
 
 #PPminicarts .minicarts-submit img {
     vertical-align: middle;
