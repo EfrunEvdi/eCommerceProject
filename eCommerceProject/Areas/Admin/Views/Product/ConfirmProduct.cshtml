@@ -14,8 +14,23 @@
     {
         <div style="margin-left:1rem; margin-right:1rem;">
             @Html.HiddenFor(x=>x.ProductID)
-            @Html.HiddenFor(x=>x.SellTrader)
+            @Html.HiddenFor(x=>x.SellTraderID)
             @Html.HiddenFor(x=>x.BuyTraderID)
+            @Html.HiddenFor(x=>x.NameProduct)
+            @Html.HiddenFor(x=>x.DescriptionProduct)
+            @Html.HiddenFor(x=>x.DescriptionProduct)
+            @Html.HiddenFor(x=>x.BrandProduct)
+            @Html.HiddenFor(x=>x.PriceProduct)
+            @Html.HiddenFor(x=>x.DateProduct)
+            @Html.HiddenFor(x=>x.SizeProduct)
+            @Html.HiddenFor(x=>x.ImageUrl1Product)
+            @Html.HiddenFor(x=>x.ImageUrl2Product)
+            @Html.HiddenFor(x=>x.ImageUrl3Product)
+            @Html.HiddenFor(x=>x.ImageUrl4Product)
+            @Html.HiddenFor(x=>x.ImageUrl5Product)
+            @Html.HiddenFor(x=>x.ImageUrl6Product)
+            @Html.HiddenFor(x=>x.GenreCategoryID)
+
             <br />
 
             @Html.Label("Ürün İsmi :")
@@ -94,7 +109,6 @@
             @Html.ValidationMessageFor(x=>x.StatusProduct,"",new{@class="text-danger", @style="font-size:12px;"})
             <br />
 
-            @Html.HiddenFor(x=>x.GenreCategoryID)
             <button type="submit" class="btn btn-success">Güncelle</button>
         </div>
         <br />

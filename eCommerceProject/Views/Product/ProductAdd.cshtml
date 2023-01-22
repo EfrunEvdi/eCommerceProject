@@ -13,55 +13,50 @@
 
     @using (Html.BeginForm("ProductAdd", "Product", FormMethod.Post))
     {
-        @Html.Label("Kategori")
+        @Html.Label("Kategori Seçiniz : ")
         @Html.DropDownListFor(x=> x.GenreCategoryID, (List<SelectListItem>)ViewBag.cv,"Kategori Seçiniz...",new {@class="form-control", @required="true"})
         <br />
-        <br />
-        @Html.Label("Ürün Adı")
+        @Html.Label("Ürün İsmi :")
         @Html.TextBoxFor(x=> x.NameProduct, new {@class="form-control", @required="true"})
         @Html.ValidationMessageFor(x => x.NameProduct)
         <br />
-        @Html.Label("Marka")
+        @Html.Label("Ürün Markası :")
         @Html.TextBoxFor(x=> x.BrandProduct, new {@class="form-control", @required="true"})
         @Html.ValidationMessageFor(x => x.BrandProduct)
         <br />
-        @Html.Label("Açıklaması")
+        @Html.Label("Ürün Açıklaması :")
         @Html.TextBoxFor(x=> x.DescriptionProduct, new {@class="form-control", @required="true"})
         @Html.ValidationMessageFor(x => x.DescriptionProduct)
         <br />
-        @Html.Label("Fiyat")
+        @Html.Label("Ürün Fiyatı :")
         @Html.TextBoxFor(x=> x.PriceProduct, new {@class="form-control", @required="true"})
         @Html.ValidationMessageFor(x => x.PriceProduct)
         <br />
-        @Html.Label("Size")
+        @Html.Label("Ürün Bedeni :")
         @Html.TextBoxFor(x=> x.SizeProduct, new {@class="form-control", @required="true"})
         @Html.ValidationMessageFor(x => x.SizeProduct)
         <br />
-        @Html.Label("Tarih")
-        @Html.TextBoxFor(x=> x.DateProduct, new {@class="form-control", @required="true"})
-        @Html.ValidationMessageFor(x => x.DateProduct)
-        <br />
-        @Html.Label("Fotoğraf 1")
+        @Html.Label("Ürün Resmi 1 :")
         @Html.TextBoxFor(x=> x.ImageUrl1Product, new {@class="form-control", @required="true"})
         @Html.ValidationMessageFor(x => x.ImageUrl1Product)
         <br />
-        @Html.Label("Fotoğraf 2")
+        @Html.Label("Ürün Resmi 2 :")
         @Html.TextBoxFor(x=> x.ImageUrl2Product, new {@class="form-control", @required="true"})
         @Html.ValidationMessageFor(x => x.ImageUrl2Product)
         <br />
-        @Html.Label("Fotoğraf 3")
+        @Html.Label("Ürün Resmi 3 :")
         @Html.TextBoxFor(x=> x.ImageUrl3Product, new {@class="form-control", @required="true"})
         @Html.ValidationMessageFor(x => x.ImageUrl3Product)
         <br />
-        @Html.Label("Fotoğraf 4")
+        @Html.Label("Ürün Resmi 4 :")
         @Html.TextBoxFor(x=> x.ImageUrl4Product, new {@class="form-control"})
         @Html.ValidationMessageFor(x => x.ImageUrl4Product)
         <br />
-        @Html.Label("Fotoğraf 5")
+        @Html.Label("Ürün Resmi 5 :")
         @Html.TextBoxFor(x=> x.ImageUrl5Product, new {@class="form-control"})
         @Html.ValidationMessageFor(x => x.ImageUrl5Product)
         <br />
-        @Html.Label("Fotoğraf 6")
+        @Html.Label("Ürün Resmi 6 :")
         @Html.TextBoxFor(x=> x.ImageUrl6Product, new {@class="form-control"})
         @Html.ValidationMessageFor(x => x.ImageUrl6Product)
         <br />

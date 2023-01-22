@@ -23,11 +23,6 @@ namespace eCommerceProject.Controllers
             return View(values);
         }
 
-        public IActionResult ProductDetails(int id)
-        {
-            ViewBag.i = id;
-            var values = pm.TGetList(id);
-            return View(values);
-        }
+       
     }
 }

@@ -23,7 +23,12 @@ namespace eCommerceProject.Controllers
             return View(values);
         }
 
-
+        public IActionResult ProductDetails(int id)
+        {
+            ViewBag.i = id;
+            var values = pm.TGetList(id);
+            return View(values);
+        }
 
         [HttpGet]
         public IActionResult ProductAdd(int id)
@@ -56,8 +61,9 @@ namespace eCommerceProject.Controllers
             //if (results.IsValid) //eğer giriş için olumsuz şart yoksa ekler
             //{
             product.SellTraderID = 3;
+            product.DateProduct = DateTime.Parse(DateTime.Now.ToShortDateString());
             pm.TAdd(product);
-            return RedirectToAction("MySell", "Profile");//Ekledikten sonra tekrar listelemesini istediğimiz için yaptık
+            return RedirectToAction("MyProductsToBeApproved", "Profile");//Ekledikten sonra tekrar listelemesini istediğimiz için yaptık
 
             //}
             //else
@@ -84,10 +90,13 @@ namespace eCommerceProject.Controllers
             ProductValidator validations = new ProductValidator();
             ValidationResult results = validations.Validate(product);
 
+
             if (results.IsValid) //eğer giriş için olumsuz şart yoksa ekler
             {
+                product.SellTraderID = 3;
+                product.DateProduct = DateTime.Parse(DateTime.Now.ToShortDateString());
                 pm.TUpdate(product);
-                return RedirectToAction("ilanlarim", "Trader");//Ekledikten sonra tekrar listelemesini istediğimiz için yaptık
+                return RedirectToAction("MyProductsToBeApproved", "Profile");//Ekledikten sonra tekrar listelemesini istediğimiz için yaptık
             }
             else
             {

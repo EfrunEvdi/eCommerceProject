@@ -11,7 +11,7 @@
         <!-- tittle heading -->
         <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
             <span class="font-weight-normal">
-               Onay Bekleyen Ürünlerim
+                Onay Bekleyen Ürünlerim
             </span>
         </h3>
         <!-- //tittle heading -->
@@ -57,12 +57,12 @@
                         <div class="row">
                             @foreach (var item in Model)
                             {
-                                @if (item.SellTraderID == 3 && item.StatusProduct == false)
+                                @if (item.SellTraderID == 3 && item.StatusProduct == false && item.BuyTraderID == null)
                                 {
                                     <div class="col-md-4 product-men mt-md-0 mt-5">
                                         <div class="men-pro-item simpleCart_shelfItem">
                                             <div class="men-thumb-item text-center">
-                                                <img src="@item.ImageUrl1Product" alt="" class="img-fluid">
+                                                <img src="@item.ImageUrl1Product" alt="" class="img-fluid" style="height: 268.99px">
                                                 <div class="men-cart-pro">
                                                     <div class="inner-men-cart-pro">
                                                         <a href="/Product/EditProduct/@item.ProductID" class="link-product-add-cart">
@@ -77,27 +77,16 @@
                                                 </h4>
                                                 <div class="info-product-price">
                                                     <span class="item_price">@item.PriceProduct</span>
-                                                    <del>(@item.PriceProduct)</del>
                                                 </div>
                                                 <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                                    <form action="/Product/ProductDetails" method="post">
+                                                   @* <form action="/Home/ProductDetails" method="post">
                                                         <fieldset>
-                                                            @*<input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name"
-                                                    value="Samsung Galaxy F62  " />
-                                                    <input type="hidden" name="amount" value="@item.PriceProduct" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="TRY" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />*@
                                                             <button type="submit" name="submit" value="Detaya Git"
                                                             class="btn btn-style btn-style-secondary mt-3">
                                                                 Detaya Git
                                                             </button>
                                                         </fieldset>
-                                                    </form>
+                                                    </form>*@
                                                 </div>
                                             </div>
                                         </div>

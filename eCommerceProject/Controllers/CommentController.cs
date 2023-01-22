@@ -29,7 +29,7 @@ namespace eCommerceProject.Controllers
             comment.ProductID = pID; //burada ProductID=2 dediğimiz için hangi sayfada yorum yaparsak yapalım 2 ID'li ürüne yorum eklenecek
             cm.TAdd(comment);   
 
-            return RedirectToAction("ProductDetails", "Home", new { id = pID });
+            return RedirectToAction("ProductDetails", "Product", new { id = pID });
         }
 
     }
