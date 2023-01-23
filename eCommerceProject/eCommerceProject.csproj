@@ -7,16 +7,12 @@
   <ItemGroup>
     <Compile Remove="Areas\aaa\**" />
     <Compile Remove="Areas\Admin\Data\**" />
-    <Compile Remove="Areas\Admin\Models\**" />
     <Content Remove="Areas\aaa\**" />
     <Content Remove="Areas\Admin\Data\**" />
-    <Content Remove="Areas\Admin\Models\**" />
     <EmbeddedResource Remove="Areas\aaa\**" />
     <EmbeddedResource Remove="Areas\Admin\Data\**" />
-    <EmbeddedResource Remove="Areas\Admin\Models\**" />
     <None Remove="Areas\aaa\**" />
     <None Remove="Areas\Admin\Data\**" />
-    <None Remove="Areas\Admin\Models\**" />
   </ItemGroup>
 
   <ItemGroup>

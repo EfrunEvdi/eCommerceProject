@@ -11,7 +11,7 @@
         <!-- tittle heading -->
         <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
             <span class="font-weight-normal">
-                Hoşgeldin <b>Efrun</b> !
+                Hoşgeldin <b>@ViewBag.ad</b> !
             </span>
         </h3>
         <!-- //tittle heading -->
@@ -58,7 +58,7 @@
                         <div class="row">
                             @foreach (var item in Model)
                             {
-                                @if (item.SellTraderID == 3 && item.StatusProduct == true)
+                                @if (item.SellTraderID == ViewBag.id && item.StatusProduct == true)
                                 {
                                     <div class="col-md-4 product-men mb-3">
                                         <div class="men-pro-item simpleCart_shelfItem">

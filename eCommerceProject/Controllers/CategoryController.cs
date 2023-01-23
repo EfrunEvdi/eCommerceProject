@@ -1,9 +1,12 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eCommerceProject.Controllers
 {
+    [AllowAnonymous]
+
     public class CategoryController : Controller
     {
         public IActionResult SubCategory(int id)

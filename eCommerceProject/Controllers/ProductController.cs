@@ -1,9 +1,12 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -16,12 +19,25 @@ namespace eCommerceProject.Controllers
 {
     public class ProductController : Controller
     {
+        private readonly UserManager<AppUser> _userManager;
+
+        Context context = new Context();
         ProductManager pm = new ProductManager(new EfProductRepository());
+
+        public ProductController(UserManager<AppUser> userManager)
+        {
+            _userManager = userManager;
+        }
+
+        [AllowAnonymous]
+
         public IActionResult Index()
         {
             var values = pm.TGetList();
             return View(values);
         }
+
+        [AllowAnonymous]
 
         public IActionResult ProductDetails(int id)
         {
@@ -60,6 +76,14 @@ namespace eCommerceProject.Controllers
 
             //if (results.IsValid) //eğer giriş için olumsuz şart yoksa ekler
             //{
+            //var username = User.Identity.Name;
+            //ViewBag.ad = username;
+
+            //var usermail = context.Users.Where(x => x.UserName == username).Select(y => y.Email).FirstOrDefault();
+            //var traderId = context.Traders.Where(x => x.TraderUserName == username).Select(y => y.TraderID).FirstOrDefault();
+            //ViewBag.id = traderId;
+            //var values = pm.GetProductWithSellTraderID(traderId);
+            //return View(values);
             product.SellTraderID = 3;
             product.DateProduct = DateTime.Parse(DateTime.Now.ToShortDateString());
             pm.TAdd(product);

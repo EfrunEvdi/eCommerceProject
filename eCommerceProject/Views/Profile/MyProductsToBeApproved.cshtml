@@ -57,7 +57,7 @@
                         <div class="row">
                             @foreach (var item in Model)
                             {
-                                @if (item.SellTraderID == 3 && item.StatusProduct == false && item.BuyTraderID == null)
+                                @if (item.SellTraderID == ViewBag.id && item.StatusProduct == false && item.BuyTraderID == null)
                                 {
                                     <div class="col-md-4 product-men mt-md-0 mt-5">
                                         <div class="men-pro-item simpleCart_shelfItem">

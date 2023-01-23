@@ -1,9 +1,12 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eCommerceProject.Controllers
 {
+    [AllowAnonymous]
+
     public class GenreCategoryController : Controller
     {
         GenreCategoryManager gcm = new GenreCategoryManager(new EfGenreCategoryRepository());

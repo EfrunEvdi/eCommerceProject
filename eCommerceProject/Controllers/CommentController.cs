@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -14,11 +15,13 @@ namespace eCommerceProject.Controllers
         //    return View();
         //}
 
-        //[HttpGet]
-        //public PartialViewResult PartialAddComment()
-        //{
-        //    return PartialView();
-        //}
+        [HttpGet]
+        [AllowAnonymous]
+
+        public PartialViewResult PartialAddComment()
+        {
+            return PartialView();
+        }
         [HttpPost]
         public IActionResult PartialAddComment(Comment comment, int pID)
         {
@@ -27,7 +30,7 @@ namespace eCommerceProject.Controllers
             comment.CommentDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             comment.CommentStatus = true;
             comment.ProductID = pID; //burada ProductID=2 dediğimiz için hangi sayfada yorum yaparsak yapalım 2 ID'li ürüne yorum eklenecek
-            cm.TAdd(comment);   
+            cm.TAdd(comment);
 
             return RedirectToAction("ProductDetails", "Product", new { id = pID });
         }

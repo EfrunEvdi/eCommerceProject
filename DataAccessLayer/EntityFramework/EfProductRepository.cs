@@ -13,11 +13,27 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EfProductRepository : GenericRepository<Product>, IProductDal
     {
+        public List<Product> ProductListBuyTraderId()
+        {
+            using (var c = new Context())
+            {
+                return c.Products.Include(x => x.BuyTrader).ToList();
+            }
+        }
+
         public List<Product> ProductListBySub()
         {
             using (var c = new Context())
             {
                 return c.Products.Include(x => x.GenreCategory).ToList();
+            }
+        }
+
+        public List<Product> ProductListSellTraderId()
+        {
+            using (var c = new Context())
+            {
+                return c.Products.Include(x => x.SellTrader).ToList();
             }
         }
     }

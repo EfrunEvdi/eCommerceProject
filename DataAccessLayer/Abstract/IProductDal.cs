@@ -9,6 +9,8 @@ namespace DataAccessLayer.Abstract
 {
     public interface IProductDal : IGenericDal<Product>
     {
+        //List<Product> ProductListSellTraderId(int id);
+        //List<Product> ProductListBuyTraderId(int id);
         List<Product> ProductListBySub();
     }
 }
