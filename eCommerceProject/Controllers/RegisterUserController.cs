@@ -1,4 +1,6 @@
-﻿using eCommerceProject.Models;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using eCommerceProject.Models;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -23,7 +25,7 @@ namespace eCommerceProject.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Index(UserSignUpViewModel signUpViewModel,Trader trader)
+        public async Task<IActionResult> Index(UserSignUpViewModel signUpViewModel, Trader trader)
         {
             if (!signUpViewModel.IsAcceptTheContract)
             {
@@ -37,13 +39,18 @@ namespace eCommerceProject.Controllers
                     Email = signUpViewModel.Mail,
                     UserName = signUpViewModel.UserName,
                     NameSurname = signUpViewModel.NameSurname
-                   
+
                 };
                 var result = await _userManager.CreateAsync(user, signUpViewModel.Password);
 
                 if (result.Succeeded)
                 {
-                    //trader.MailTrader = signUpViewModel.Mail;
+                    TraderManager tm = new TraderManager(new EfTraderRepository());
+
+                    trader.MailTrader = signUpViewModel.Mail;
+                    trader.TraderUserName = signUpViewModel.UserName;
+                    tm.TAdd(trader);
+
                     return RedirectToAction("Index", "LoginUser");
                 }
                 else
