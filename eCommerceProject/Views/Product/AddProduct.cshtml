@@ -1,0 +1,57 @@
+﻿@model ProductAddViewModel
+@{
+    ViewData["Title"] = "AddProduct";
+    Layout = "~/Views/Shared/_LayoutAuthenticated.cshtml";
+}
+
+<br />
+<div class="card-header border-0">
+    <h3 class="mb-0">Ürün Ekleme Paneli</h3>
+</div>
+
+<form class="form-group " style="margin-left: 1rem; margin-right: 1rem;" method="post" enctype="multipart/form-data">
+
+    @using (Html.BeginForm("AddProduct", "Product", FormMethod.Post))
+    {
+        @Html.Label("Kategori Seçiniz : ")
+        @Html.DropDownListFor(x=> x.genreCategoryID, (List<SelectListItem>)ViewBag.cv,"Kategori Seçiniz...",new {@class="form-control", @required="true"})
+        <br />
+        @Html.Label("Ürün İsmi :")
+        @Html.TextBoxFor(x=> x.nameProduct, new {@class="form-control", @required="true"})
+       @*@Html.ValidationMessageFor(x => x.nameProduct)*@
+        <br />
+        @Html.Label("Ürün Markası :")
+        @Html.TextBoxFor(x=> x.brandProduct, new {@class="form-control", @required="true"})
+       @* @Html.ValidationMessageFor(x => x.brandProduct)*@
+        <br />
+        @Html.Label("Ürün Açıklaması :")
+        @Html.TextBoxFor(x=> x.descriptionProduct, new {@class="form-control", @required="true"})
+   @*  @Html.ValidationMessageFor(x => x.descriptionProduct)*@
+        <br />
+        @Html.Label("Ürün Fiyatı :")
+        @Html.TextBoxFor(x=> x.priceProduct, new {@class="form-control", @required="true"})
+       @* @Html.ValidationMessageFor(x => x.priceProduct)*@
+        <br />
+        @Html.Label("Ürün Bedeni :")
+        @Html.TextBoxFor(x=> x.sizeProduct, new {@class="form-control", @required="true"})
+       @*@Html.ValidationMessageFor(x => x.sizeProduct)*@
+        <br />
+
+        <label>Ürün Fotoğrafı Seç </label>
+        <br/>
+        <input class="form-control" type="file" asp-for="@Model.productimageurl1" required="" />
+        <br/>
+        <input class="form-control"  type="file" asp-for="@Model.productimageurl2" required="" />
+        <br/>
+        <input class="form-control"  type="file" asp-for="@Model.productimageurl3" required="" />
+        <br />
+        
+
+
+        <button class="btn btn-info">Ürünü Kaydet</button>
+
+
+
+    }
+</form>
+

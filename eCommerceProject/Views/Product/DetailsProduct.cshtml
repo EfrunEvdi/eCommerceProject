@@ -21,3 +21,103 @@
     </div>
 </div>
 
+
+
+@foreach (var item1 in Model)
+{
+    <div class="banner-bootom-w3-agileits pt-5">
+        <div class="container py-md-5 pt-4">
+            <div class="row">
+                <div class="col-lg-5 col-md-8 single-right-left ">
+                    <div class="grid images_3_of_2">
+                        <div class="flexslider">
+                            <ul class="slides">
+                                <li data-thumb="@item1.ImageUrl1Product">
+                                    <div class="thumb-image">
+                                        <img src="@item1.ImageUrl1Product" data-imagezoom="true" class="img-fluid" alt="">
+                                    </div>
+                                </li>
+                                <li data-thumb="@item1.ImageUrl2Product">
+                                    <div class="thumb-image">
+                                        <img src="@item1.ImageUrl2Product" data-imagezoom="true" class="img-fluid" alt="">
+                                    </div>
+                                </li>
+                                <li data-thumb="@item1.ImageUrl3Product">
+                                    <div class="thumb-image">
+                                        <img src="@item1.ImageUrl3Product" data-imagezoom="true" class="img-fluid" alt="">
+                                    </div>
+                                </li>
+                                <li data-thumb="@item1.ImageUrl4Product">
+                                    <div class="thumb-image">
+                                        <img src="@item1.ImageUrl4Product" data-imagezoom="true" class="img-fluid" alt="">
+                                    </div>
+                                </li>
+                                <li data-thumb="@item1.ImageUrl5Product">
+                                    <div class="thumb-image">
+                                        <img src="@item1.ImageUrl5Product" data-imagezoom="true" class="img-fluid" alt="">
+                                    </div>
+                                </li>
+                                <li data-thumb="@item1.ImageUrl6Product">
+                                    <div class="thumb-image">
+                                        <img src="@item1.ImageUrl6Product" data-imagezoom="true" class="img-fluid" alt="">
+                                    </div>
+                                </li>
+
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 single-right-left simpleCart_shelfItem">
+                    <h3 class="mb-3">@item1.NameProduct (@item1.BrandProduct)</h3>
+                    <p class="mb-3">
+                        <span class="item_price">@item1.PriceProduct TL</span>
+                    </p>
+
+                    <div class="product-single-w3l">
+                        <p class="my-3">
+                            <i class="far fa-hand-point-right mr-2"></i>
+                            Detaylar
+                        <p class="my-sm-4 my-3">@item1.DescriptionProduct</p>
+                    </div>
+                    <div class="single-infoagile">
+                        <ul>
+                            <li class="mb-3">
+                                Beden: @item1.SizeProduct
+                            </li>
+                            <li class="mb-3">
+                                Ekleme Tarihi: @item1.DateProduct
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="occasion-cart">
+                        <a href="/Product/BuyProduct/@ViewBag.i" class="btn btn-primary">Satın Al!</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- //Single Page -->
+            @*<div class="row">*@
+            @*<div class="col-lg-5 col-md-8 single-right-left">*@
+            @await Component.InvokeAsync("CommentList", new {id=ViewBag.i})
+            @*</div>*@
+            @* Bir Yorum Bırakın buraya gelecek*@
+            @*</div>*@
+            @await Html.PartialAsync("~/Views/Comment/PartialAddComment.cshtml")
+        </div>
+    </div>
+</div>
+
+
+

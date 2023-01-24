@@ -1,0 +1,72 @@
+﻿@model IEnumerable< EntityLayer.Concrete.Product>
+
+@{
+    ViewData["Title"] = "CheckOut";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="page-head_agile_info_w3l inner-contact-page">
+    <div class="container py-5">
+        <h3 class="title-style text-white pt-5">Sipariş Onay Sayfası</h3>
+        <ul class="w3_short pt-3 pb-5">
+            <li>
+                <a href="/Product/BuyProduct/" class="text-white">Ödeme Yap</a>
+                <i class="fa fa-angle-right mx-2 text-white" aria-hidden="true"></i>
+            </li>
+            <li class="text-light">Sipariş Onay</li>
+        </ul>
+    </div>
+</div>
+
+@*<table class="table table-bordered">
+        <tr>
+            <th scope="col">Ürün Adı</th>
+            <th scope="col">Ürün Açıklaması</th>
+            <th scope="col">Ürün Bedeni</th>
+            <th scope="col">Ürün Fiyatı</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.NameProduct</td>
+                <td>@item.DescriptionProduct</td>
+                <td>@item.SizeProduct</td>
+                <td>@item.PriceProduct</td>
+            </tr>
+        }
+    </table>*@
+
+@foreach (var item1 in Model)
+{
+    <div class="col-lg-7 single-right-left simpleCart_shelfItem">
+        <div class="single-infoagile">
+            <ul>
+                <li class="mb-3">
+                    Ürün Resmi: @item1.ImageUrl1Product
+                </li>
+                <li class="mb-3">
+                    Ürün Adı: @item1.NameProduct
+                </li>
+                <li class="mb-3">
+                    Ürün Açıklaması: @item1.DescriptionProduct
+                </li>
+                <li class="mb-3">
+                    Ürün Bedeni: @item1.SizeProduct
+                </li>
+                <li class="mb-3">
+                    Ürün Fiyatı: @item1.PriceProduct
+                </li>
+                <li class="mb-3">
+                    Satıcı: @ViewBag.ad
+                </li>
+                <li class="mb-3">
+                    İban Adresi: @ViewBag.IBAN
+                </li>
+            </ul>
+        </div>
+    </div>
+}
+
+<div class="occasion-cart">
+    <a href="" class="btn btn-primary">Siparişi Onayla</a>
+</div>

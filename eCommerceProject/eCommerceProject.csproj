@@ -43,6 +43,7 @@
     <Folder Include="Areas\Admin\Views\Admin\" />
     <Folder Include="Areas\Admin\Views\Home\" />
     <Folder Include="Areas\Admin\Views\MainCategory\" />
+    <Folder Include="wwwroot\productimage\" />
     <Folder Include="wwwroot\traderimage\" />
   </ItemGroup>
 

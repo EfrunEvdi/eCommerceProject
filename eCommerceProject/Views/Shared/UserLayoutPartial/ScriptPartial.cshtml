@@ -27,6 +27,10 @@
 <!-- start-smoth-scrolling -->
 <script type="text/javascript" src="~/web/js/move-top.js"></script>
 <script type="text/javascript" src="~/web/js/easing.js"></script>
+<link rel="stylesheet" type="text/css" href="~/web/css/easy-responsive-tabs.css" />
+<script src="~/web/js/easyResponsiveTabs.js"></script>
+
+
 <script type="text/javascript">
     jQuery(document).ready(function ($) {
         $(".scroll").click(function (event) {
@@ -51,6 +55,26 @@
                 $(this).toggleClass('open');
             }
         );
+    });
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        //Horizontal Tab
+        $('#parentHorizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion
+            width: 'auto', //auto or any width like 600px
+            fit: true, // 100% fit in a container
+            tabidentify: 'hor_1', // The tab groups identifier
+            activate: function (event) { // Callback function if tab is switched
+                var $tab = $(this);
+                var $info = $('#nested-tabInfo');
+                var $name = $('span', $info);
+                $name.text($tab.text());
+                $info.show();
+            }
+        });
     });
 </script>
 <!-- //nav smooth scroll -->
@@ -137,6 +161,76 @@
 <!-- //FlexSlider-->
 <!-- theme switch js (light and dark)-->
 <script src="~/web/js/theme-change.js"></script>
+<script src="~/web/js/creditly.js"></script>
+<link rel="stylesheet" href="~/web/css/creditly.css" type="text/css" media="all" />
+
+<script>
+    $(function () {
+        var creditly = Creditly.initialize(
+            '.creditly-wrapper .expiration-month-and-year',
+            '.creditly-wrapper .credit-card-number',
+            '.creditly-wrapper .security-code',
+            '.creditly-wrapper .card-type');
+
+
+        $(".creditly-card-form .submit").click(function (e) {
+            e.preventDefault();
+            var output = creditly.validate();
+            if (output) {
+                // Your validated credit card output
+                console.log(output);
+            }
+        });
+    });
+</script>
+
+<!-- creditly2 (for paypal) -->
+<script src="~/web/js/creditly2.js"></script>
+<script>
+    $(function () {
+        var creditly = Creditly2.initialize(
+            '.creditly-wrapper .expiration-month-and-year-2',
+            '.creditly-wrapper .credit-card-number-2',
+            '.creditly-wrapper .security-code-2',
+            '.creditly-wrapper .card-type');
+
+        $(".creditly-card-form-2 .submit").click(function (e) {
+            e.preventDefault();
+            var output = creditly.validate();
+            if (output) {
+                // Your validated credit card output
+                console.log(output);
+            }
+        });
+    });
+</script>
+<!-- //credit-card -->
+<!-- cart-js -->
+<script src="~/web/js/minicart.js"></script>
+<script>
+    paypals.minicarts
+        .render(); //use only unique class names other than paypals.minicarts.Also Replace same class name in css and minicart.min.js
+
+    paypals.minicarts.cart.on('checkout', function (evt) {
+        var items = this.items(),
+            len = items.length,
+            total = 0,
+            i;
+
+        // Count the number of each item in the cart
+        for (i = 0; i < len; i++) {
+            total += items[i].get('quantity');
+        }
+
+        if (total < 3) {
+            alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+            evt.preventDefault();
+        }
+    });
+</script>
+<!-- //cart-js -->
+
+
 <script>
     function autoType(elementClass, typingSpeed) {
         var thhis = $(elementClass);
@@ -186,3 +280,39 @@
 <script src="~/web/js/bootstrap.min.js"></script>
 <!-- //bootstrap-->
 <!-- //Js scripts -->
+
+<script src="~/web/js/theme-change.js"></script>
+<script>
+    function autoType(elementClass, typingSpeed) {
+        var thhis = $(elementClass);
+        thhis.css({
+            "position": "relative",
+            "display": "inline-block"
+        });
+        thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+        thhis = thhis.find(".text-js");
+        var text = thhis.text().trim().split('');
+        var amntOfChars = text.length;
+        var newString = "";
+        thhis.text("|");
+        setTimeout(function () {
+            thhis.css("opacity", 1);
+            thhis.prev().removeAttr("style");
+            thhis.text("");
+            for (var i = 0; i < amntOfChars; i++) {
+                (function (i, char) {
+                    setTimeout(function () {
+                        newString += char;
+                        thhis.text(newString);
+                    }, i * typingSpeed);
+                })(i + 1, text[i]);
+            }
+        }, 1500);
+    }
+    $(document).ready(function () {
+        // Now to start autoTyping just call the autoType function with the
+        // class of outer div
+        // The second paramter is the speed between each letter is typed.
+        autoType(".type-js", 200);
+    });
+</script>
