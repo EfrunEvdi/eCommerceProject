@@ -31,7 +31,7 @@
 			<div class="card col-lg-4 mx-auto">
 			  <div class="card-body px-5 py-5">
 				<h3 class="card-title text-left mb-3">Kayıt Ol</h3>
-				<form role="form" asp-action="Index">
+				<form role="form" asp-action="Index"  enctype="multipart/form-data">
 					
 					 <div class="form-group">
 						
@@ -65,6 +65,11 @@
 					<input type="password" class="form-control p_input" asp-for="@Model.ConfirmPassword" required="">
 					 <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"  style="font-size:12px;"></span>
 				  </div>
+
+					<label>Profil Fotoğrafı Seç </label>
+					<input type="file" asp-for="@Model.imageurltrader" />
+
+
 				  <div class="form-group d-flex align-items-center justify-content-between">
 					<div class="form-check">
 					  <label class="form-check-label">
@@ -80,6 +85,8 @@
 				  <p class="sign-up text-center">Zaten bir hesabın var mı?<a href="/LoginUser/Index/"> Giriş Yap </a></p>
 				  <br />
 				  <div class="text-danger" style="font-size:12px;" asp-validation-summary="ModelOnly"></div>
+
+
 
 				</form>
 			  </div>

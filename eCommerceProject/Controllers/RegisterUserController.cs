@@ -5,6 +5,8 @@ using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
+using System;
 using System.Threading.Tasks;
 
 namespace eCommerceProject.Controllers
@@ -27,6 +29,8 @@ namespace eCommerceProject.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(UserSignUpViewModel signUpViewModel, Trader trader)
         {
+
+
             if (!signUpViewModel.IsAcceptTheContract)
             {
                 ModelState.AddModelError("IsAcceptTheContract", "Kullanım koşullarını kabul etmeniz gerekmektedir");
@@ -38,7 +42,8 @@ namespace eCommerceProject.Controllers
                 {
                     Email = signUpViewModel.Mail,
                     UserName = signUpViewModel.UserName,
-                    NameSurname = signUpViewModel.NameSurname
+                    NameSurname = signUpViewModel.NameSurname,
+                    ImageUrl = trader.ImageUrlTrader
 
                 };
                 var result = await _userManager.CreateAsync(user, signUpViewModel.Password);
@@ -46,6 +51,21 @@ namespace eCommerceProject.Controllers
                 if (result.Succeeded)
                 {
                     TraderManager tm = new TraderManager(new EfTraderRepository());
+
+                    //if (p.imageurltrader != null)
+                    //{
+                    //TraderManager tm = new TraderManager(new EfTraderRepository());
+
+                    ViewBag.i = signUpViewModel.imageurltrader;
+                    var extension = Path.GetExtension(signUpViewModel.imageurltrader.FileName);
+                    var newImageName = Guid.NewGuid() + extension;
+                    var location = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/traderimage/", newImageName);
+                    var stream = new FileStream(location, FileMode.Create);
+                    signUpViewModel.imageurltrader.CopyTo(stream);
+                    trader.ImageUrlTrader = newImageName;
+
+                    //}
+
 
                     trader.MailTrader = signUpViewModel.Mail;
                     trader.TraderUserName = signUpViewModel.UserName;

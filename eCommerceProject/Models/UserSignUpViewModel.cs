@@ -1,4 +1,5 @@
 ﻿using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 
 namespace eCommerceProject.Models
@@ -26,6 +27,8 @@ namespace eCommerceProject.Models
         [Compare("Password", ErrorMessage = "Şifreler Uyumlu Değil!")]
         [Required(ErrorMessage = "Lütfen şifreyi tekrar giriniz.")]
         public string ConfirmPassword { get; set; }
+
+        public IFormFile imageurltrader { get; set; }
 
         public bool IsAcceptTheContract { get; set; }
 

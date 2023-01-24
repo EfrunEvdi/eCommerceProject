@@ -2,9 +2,12 @@
 using BusinessLayer.ValidationRules;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using eCommerceProject.Models;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -27,14 +30,14 @@ namespace eCommerceProject.Controllers
         {
             var username = User.Identity.Name;
             ViewBag.ad = username;
-            
+
             var usermail = context.Users.Where(x => x.UserName == username).Select(y => y.Email).FirstOrDefault();
             var traderId = context.Traders.Where(x => x.TraderUserName == username).Select(y => y.TraderID).FirstOrDefault();
             ViewBag.id = traderId;
             var values = mc.GetProductWithSellTraderID(traderId);
             return View(values);
         }
-  
+
 
 
         public IActionResult MyGet()
