@@ -13,7 +13,6 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 
 namespace eCommerceProject
@@ -34,6 +33,8 @@ namespace eCommerceProject
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
 
             services.AddControllersWithViews();
+
+            services.AddSession();
 
             services.AddMvc(config =>
             {
@@ -80,8 +81,9 @@ namespace eCommerceProject
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-          
             app.UseAuthentication();
+
+            app.UseSession();
 
             app.UseRouting();
 
