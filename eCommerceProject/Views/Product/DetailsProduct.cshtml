@@ -1,0 +1,23 @@
+﻿@model IEnumerable< EntityLayer.Concrete.Product>
+@{
+    ViewData["Title"] = "DetailsProduct";
+    Layout = "~/Views/Shared/_LayoutAuthenticated.cshtml";
+}
+
+
+<div class="page-head_agile_info_w3l inner-checkout-page">
+    <div class="container py-5">
+        @foreach (var item in Model)
+        {
+            <h3 class="title-style text-white pt-5">@item.NameProduct</h3>
+            <ul class="w3_short pt-3 pb-5">
+                <li>
+                    <a href="/" class="text-white">Ana Sayfa</a>
+                    <i class="fa fa-angle-right mx-2 text-white" aria-hidden="true"></i>
+                </li>
+                <li class="text-light">Ürün Detay</li>
+            </ul>
+        }
+    </div>
+</div>
+

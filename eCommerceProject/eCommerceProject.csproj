@@ -45,4 +45,10 @@
     <Folder Include="Areas\Admin\Views\MainCategory\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Views\Shared\LayoutAuthenticatedPartial\BottomHeaderPartialAuth.cshtml" />
+    <None Include="Views\Shared\LayoutAuthenticatedPartial\NavbarPartialAuth.cshtml" />
+    <None Include="Views\Shared\LayoutAuthenticatedPartial\TopHeaderPartialAuth.cshtml" />
+  </ItemGroup>
+
 </Project>

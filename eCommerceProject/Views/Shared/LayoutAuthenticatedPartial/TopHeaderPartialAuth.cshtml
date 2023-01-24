@@ -1,0 +1,169 @@
+﻿
+
+<div class="agile-main-top">
+    <div class="container">
+        <div class="row main-top-w3l py-2">
+            <div class="col-lg-3 col-sm-4 header-most-top">
+                <p class=" text-lg-left text-center">Hoş Geldiniz !</p>
+            </div>
+            <div class="col-lg-9 col-sm-8 header-right ml-auto text-sm-right text-center">
+                <!-- header lists -->
+                <ul class="top-header-lists">
+                    @*<li>
+                        <a href="/Admin/Admin/Index/">
+                            <i class="fas fa-map-marker mr-1"></i>Admin Paneli
+                        </a>
+                    </li>*@
+                    <li class="mx-3">
+                        <a href="/Profile/MyProfile/" class="">
+                            <i class="fas fa-sign-in-alt mr-1"></i> Profilim
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/LoginUser/LogOut/" class="">
+                            <i class="fas fa-sign-out-alt mr-1"></i>Çıkış Yap
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div id="small-dialog1" class="mfp-hide">
+    <div class="select-city">
+        <h3>
+            <i class="fas fa-map-marker"></i> Lütfen Konumunuzu Seçiniz.
+        </h3>
+        <select class="list_of_cities">
+            @*Buraya Api Gelecek*
+        </select>
+        <div class="clearfix"></div>
+    </div>
+</div>*@
+<!-- log in -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center">Log In</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Username" name="Name" required="">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Password" name="Password"
+                               required="">
+                    </div>
+                    <div class="right-w3l">
+                        <input type="submit" class="form-control" value="Log in">
+                    </div>
+                    <div class="sub-w3l">
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                            <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+                            <label class="custom-control-label" for="customControlAutosizing">
+                                Remember
+                                me?
+                            </label>
+                        </div>
+                    </div>
+                    <p class="text-center dont-do mt-3">
+                        Don't have an account?
+                        <a href="#" data-toggle="modal" data-target="#exampleModal2">
+                            Register Now
+                        </a>
+                    </p>
+                    <p class="text-center dont-do mt-3">(Or)</p>
+                    <div class="social text-center mt-2">
+                        <ul class="list-unstyled">
+                            <li class="d-inline">
+                                <a class="icon fb" href="#facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li class="d-inline mx-1">
+                                <a class="icon tw" href="#twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="d-inline">
+                                <a class="icon gp" href="#google-plus">
+                                    <i class="fab fa-google-plus-g"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- register -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Kayıt ol!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Your Name" name="Name" required="">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Email" name="Email" required="">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Password" name="Password"
+                               id="password1" required="">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Confirm Password"
+                               name="Confirm Password" id="password2" required="">
+                    </div>
+                    <div class="right-w3l">
+                        <input type="submit" class="form-control" value="Register">
+                    </div>
+                    <div class="sub-w3l">
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                            <input type="checkbox" class="custom-control-input" id="customControlAutosizing2">
+                            <label class="custom-control-label" for="customControlAutosizing2">
+                                I Accept to the
+                                Terms
+                                & Conditions
+                            </label>
+                        </div>
+                    </div>
+                    <p class="text-center dont-do mt-3">(Or)</p>
+                    <div class="social text-center mt-2">
+                        <ul class="list-unstyled">
+                            <li class="d-inline">
+                                <a class="icon fb" href="#facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li class="d-inline mx-1">
+                                <a class="icon tw" href="#twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="d-inline">
+                                <a class="icon gp" href="#google-plus">
+                                    <i class="fab fa-google-plus-g"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

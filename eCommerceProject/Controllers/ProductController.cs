@@ -46,6 +46,14 @@ namespace eCommerceProject.Controllers
             return View(values);
         }
 
+        [Authorize]
+        public IActionResult DetailsProduct(int id)
+        {
+            ViewBag.i = id;
+            var values = pm.TGetList(id);
+            return View(values);
+        }
+
         [HttpGet]
         public IActionResult ProductAdd(int id)
         {
@@ -76,15 +84,13 @@ namespace eCommerceProject.Controllers
 
             //if (results.IsValid) //eğer giriş için olumsuz şart yoksa ekler
             //{
-            //var username = User.Identity.Name;
-            //ViewBag.ad = username;
+            var username = User.Identity.Name;
+            ViewBag.ad = username;
 
-            //var usermail = context.Users.Where(x => x.UserName == username).Select(y => y.Email).FirstOrDefault();
-            //var traderId = context.Traders.Where(x => x.TraderUserName == username).Select(y => y.TraderID).FirstOrDefault();
-            //ViewBag.id = traderId;
-            //var values = pm.GetProductWithSellTraderID(traderId);
-            //return View(values);
-            product.SellTraderID = 3;
+            var usermail = context.Users.Where(x => x.UserName == username).Select(y => y.Email).FirstOrDefault();
+            var traderId = context.Traders.Where(x => x.TraderUserName == username).Select(y => y.TraderID).FirstOrDefault();
+           
+            product.SellTraderID = traderId;   //burada authentice olan traderın traderId'si Products tablosunda SellTraderId olarak kayıt olacak
             product.DateProduct = DateTime.Parse(DateTime.Now.ToShortDateString());
             pm.TAdd(product);
             return RedirectToAction("MyProductsToBeApproved", "Profile");//Ekledikten sonra tekrar listelemesini istediğimiz için yaptık

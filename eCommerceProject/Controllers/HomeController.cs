@@ -13,13 +13,20 @@ using System.Threading.Tasks;
 
 namespace eCommerceProject.Controllers
 {
-    [AllowAnonymous]
+   
     public class HomeController : Controller
     {
         ProductManager pm = new ProductManager(new EfProductRepository());
         CommentManager cm = new CommentManager(new EfCommentRepository());
-
+        [AllowAnonymous]
         public IActionResult Index()
+        {
+            var values = pm.TGetList();
+            return View(values);
+        }
+
+        [Authorize]
+        public IActionResult HomePage()
         {
             var values = pm.TGetList();
             return View(values);
