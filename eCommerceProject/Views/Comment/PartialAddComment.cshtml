@@ -11,9 +11,10 @@
                     {
                         var pID = item.ProductID;
                     <input class="form-control" type="hidden" name="pID" value="@item.ProductID" asp-for="@item.ProductID">
-                    }
 
-                <input class="form-control" type="text" name="CommentUserName" placeholder="İsim Soyisim" required="">
+
+                    <input class="form-control" type="hidden" name="CommentUserName" value="@ViewBag.isim" placeholder="İsim Soyisim" required="" disabled="disabled">
+                    }
                 <textarea class="form-control" name="CommentContent" placeholder="Yorum yap ve ürünü kap..." required=""></textarea>
                 <br />
                 <button type="submit" class="btn btn-success submit ">Yorum Yap!</button>

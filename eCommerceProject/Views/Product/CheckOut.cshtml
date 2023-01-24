@@ -13,60 +13,102 @@
                 <a href="/Product/BuyProduct/" class="text-white">Ödeme Yap</a>
                 <i class="fa fa-angle-right mx-2 text-white" aria-hidden="true"></i>
             </li>
-            <li class="text-light">Sipariş Onay</li>
+            <li class="text-light">Sipariş Onayı</li>
         </ul>
     </div>
 </div>
 
-@*<table class="table table-bordered">
-        <tr>
-            <th scope="col">Ürün Adı</th>
-            <th scope="col">Ürün Açıklaması</th>
-            <th scope="col">Ürün Bedeni</th>
-            <th scope="col">Ürün Fiyatı</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.NameProduct</td>
-                <td>@item.DescriptionProduct</td>
-                <td>@item.SizeProduct</td>
-                <td>@item.PriceProduct</td>
-            </tr>
-        }
-    </table>*@
-
 @foreach (var item1 in Model)
 {
-    <div class="col-lg-7 single-right-left simpleCart_shelfItem">
-        <div class="single-infoagile">
-            <ul>
-                <li class="mb-3">
-                    Ürün Resmi: @item1.ImageUrl1Product
-                </li>
-                <li class="mb-3">
-                    Ürün Adı: @item1.NameProduct
-                </li>
-                <li class="mb-3">
-                    Ürün Açıklaması: @item1.DescriptionProduct
-                </li>
-                <li class="mb-3">
-                    Ürün Bedeni: @item1.SizeProduct
-                </li>
-                <li class="mb-3">
-                    Ürün Fiyatı: @item1.PriceProduct
-                </li>
-                <li class="mb-3">
-                    Satıcı: @ViewBag.ad
-                </li>
-                <li class="mb-3">
-                    İban Adresi: @ViewBag.IBAN
-                </li>
-            </ul>
+
+    <div class="banner-bootom-w3-agileits py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row">
+                <div class="col-lg-5 col-md-8 single-right-left ">
+                    <div class="grid images_3_of_2">
+                        <div class="flexslider">
+                            <ul class="slides">
+                                <li data-thumb="@item1.ImageUrl1Product">
+                                    <div class="thumb-image">
+                                        <img src="@item1.ImageUrl1Product" data-imagezoom="true" class="img-fluid" alt="">
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 single-right-left simpleCart_shelfItem">
+                    <h3 class="mb-3">@item1.NameProduct</h3>
+                    <p class="mb-3">
+                        <span class="item_price">@item1.PriceProduct TL</span>
+                    </p>
+                    <div class="single-infoagile">
+                        <ul>
+                            <li class="mb-3">
+                                Ürün Bedeni: @item1.SizeProduct
+                            </li>
+                            <li class="mb-3">
+                                Satıcı: @ViewBag.ad
+                            </li>
+                            <li class="mb-3">
+                                İban Adresi: @ViewBag.IBAN
+                            </li>
+                            <li class="mb-3">
+                                @(((DateTime)item1.DateProduct).ToString("dd-MMM-yyyy"))
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product-single-w3l">
+                        <p class="my-3">
+                            <i class="far fa-hand-point-right mr-2"></i>
+                            Ürünü Satın Almak İçin :
+                            <ul>
+                                <li class="mb-1">
+                                    Kullanıcı ile ürünün durumu hakkında iletişime geçin.
+                                </li>
+                                <li class="mb-1">
+                                    Ürün onayı sayfasında son kontrolleri yapın.
+                                </li>
+                                <li class="mb-1">
+                                    Satıcının İBAN'ına parayı attın.
+                                </li>
+                                <li class="mb-1">
+                                    Kargo ve teslimat gerçekleştikten sonra ucuza alışveriş yapmanın tadını çıkarın.
+                                </li>
+                                <li class="mb-1">
+                                    Bizi tercih ettiğiniz için teşekkür ederiz.
+                                </li>
+                            </ul>
+                        <p class="my-sm-4 my-3">
+                            <i class="far fa-hand-point-right mr-2"></i> Herşey tamam mı?
+                        </p>
+                    </div>
+
+                    <div class="occasion-cart">
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                            <a href="/Product/LastBuy/@item1.ProductID" class="btn btn-primary" onclick="myFunction()">Ödemeyi Tamamla!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 }
 
-<div class="occasion-cart">
+@*<div class="occasion-cart">
     <a href="" class="btn btn-primary">Siparişi Onayla</a>
-</div>
+</div>*@
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+    function myFunction() {
+        swal("Tebrikler!", "Alışverişiniz Tamamlandı!", "success", {
+        buttons: false,
+        timer: 3000,
+    });
+    }
+    
+</script>

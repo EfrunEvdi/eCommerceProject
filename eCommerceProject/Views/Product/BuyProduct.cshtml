@@ -1,103 +1,103 @@
 ﻿@model IEnumerable< EntityLayer.Concrete.Product>
 @{
-	ViewData["Title"] = "BuyProduct";
-	Layout = "~/Views/Shared/_UserLayout.cshtml";
+    ViewData["Title"] = "BuyProduct";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
 <div class="page-head_agile_info_w3l inner-contact-page">
-	<div class="container py-5">
-		<h3 class="title-style text-white pt-5">Ödeme Sayfası</h3>
-		<ul class="w3_short pt-3 pb-5">
-			<li>
-				<a href="/Product/ProductDetails/" class="text-white">Ürün Detayı</a>
-				<i class="fa fa-angle-right mx-2 text-white" aria-hidden="true"></i>
-			</li>
-			<li class="text-light">Ödeme Yap</li>
-		</ul>
-	</div>
+    <div class="container py-5">
+        <h3 class="title-style text-white pt-5">Ödeme Sayfası</h3>
+        <ul class="w3_short pt-3 pb-5">
+            <li>
+                <a href="/Product/ProductDetails/" class="text-white">Ürün Detayı</a>
+                <i class="fa fa-angle-right mx-2 text-white" aria-hidden="true"></i>
+            </li>
+            <li class="text-light">Ödeme Yap</li>
+        </ul>
+    </div>
 </div>
 
 <!-- payment page-->
 <div class="privacy py-sm-5 py-5">
-	<div class="container py-md-5 py-4">
-		<!-- tittle heading -->
-		<h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">Ödeme</h3>
-		<!-- //tittle heading -->
-		<div class="checkout-right">
-			<!--Horizontal Tab-->
-			<div id="parentHorizontalTab">
-				<ul class="resp-tabs-list hor_1">
-					<li>Elden Ödeme</li>
-					<li>Havale / EFT</li>
-				</ul>
-				<div class="resp-tabs-container hor_1">
+    <div class="container py-md-5 py-4">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">Ödeme Ekranı</h3>
+        <!-- //tittle heading -->
+        <div class="checkout-right">
+            <!--Horizontal Tab-->
+            <div id="parentHorizontalTab">
+                <ul class="resp-tabs-list hor_1">
+                    <li>Havale / EFT</li>
+                    <li>Görüme Planla</li>
+                </ul>
+                <div class="resp-tabs-container hor_1">
+                    <div>
+                        <div class="vertical_post">
+                            <form action="#" method="post">
+                                <h5>Banka Seçiniz : </h5>
+                                <div class="swit-radio">
+                                    <div class="check_box_one">
+                                        <div class="radio_one">
+                                            <label>
+                                                <input type="radio" name="radio" checked="">
+                                                <i></i>Ziraat Bankası
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="check_box_one">
+                                        <div class="radio_one">
+                                            <label>
+                                                <input type="radio" name="radio">
+                                                <i></i>Yapı Kredi
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="check_box_one">
+                                        <div class="radio_one">
+                                            <label>
+                                                <input type="radio" name="radio">
+                                                <i></i>Garanti Bankası
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="check_box_one">
+                                        <div class="radio_one">
+                                            <label>
+                                                <input type="radio" name="radio">
+                                                <i></i>Halk Bankası
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
 
-					<div>
-						<div class="vertical_post check_box_agile">
-							<h5>Elden Ödeme</h5>
-							<div class="checkbox">
-								<div class="check_box_one cashon_delivery">
-									<label class="anim">
-										<span>
-											Elden ödeme için iletişime geçiniz.
-										</span>
-										<br />
-										<br />
-										<a href="/Product/CheckOut/@ViewBag.i"  class="btn btn-primary">İletişime Geç</a>
-									</label>
-								</div>
+                                <a href="/Product/CheckOut/@ViewBag.i" class="btn btn-primary">Ödemeye Geç</a>
+                            </form>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="vertical_post check_box_agile">
+                            <h5>Görüme Planla</h5>
+                            <div class="checkbox">
+                                <div class="check_box_one cashon_delivery">
+                                    <label class="anim">
+                                        <span>
+                                            Görüşme yerini planlamak için satıcı ile iletişime geçiniz.
+                                        </span>
+                                        <br />
+                                        <br />
+                                        <a href="/Product/DetailsProduct/@ViewBag.i" class="btn btn-primary">İletişime Geç</a>
+                                    </label>
+                                </div>
 
-							</div>
-						</div>
-					</div>
-					<div>
-						<div class="vertical_post">
-							<form action="#" method="post">
-								<h5>Banka Seçiniz</h5>
-								<div class="swit-radio">
-									<div class="check_box_one">
-										<div class="radio_one">
-											<label>
-												<input type="radio" name="radio" checked="">
-												<i></i>Ziraat Bankası
-											</label>
-										</div>
-									</div>
-									<div class="check_box_one">
-										<div class="radio_one">
-											<label>
-												<input type="radio" name="radio">
-												<i></i>Yapı Kredi
-											</label>
-										</div>
-									</div>
-									<div class="check_box_one">
-										<div class="radio_one">
-											<label>
-												<input type="radio" name="radio">
-												<i></i>Garanti Bankası
-											</label>
-										</div>
-									</div>
-									<div class="check_box_one">
-										<div class="radio_one">
-											<label>
-												<input type="radio" name="radio">
-												<i></i>Halk Bankası
-											</label>
-										</div>
-									</div>
-								</div>
+                            </div>
+                        </div>
 
-								<a href="/Product/CheckOut/@ViewBag.i" class="btn btn-primary">Şimdi Öde</a>
-							</form>
-						</div>
-					</div>
+                    </div>
 
-				</div>
-			</div>
-			<!--Plug-in Initialisation-->
-		</div>
-	</div>
+                </div>
+            </div>
+            <!--Plug-in Initialisation-->
+        </div>
+    </div>
 </div>
 <!-- //payment page -->

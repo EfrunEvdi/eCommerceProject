@@ -34,6 +34,9 @@ namespace eCommerceProject.Areas.Admin.Controllers
                                                        Text = x.NameGenreCategory,
                                                        Value = x.GenreCategoryID.ToString(),
                                                    }).ToList();
+
+
+
             ViewBag.cv = categoryvalues;
             return View(values);
         }

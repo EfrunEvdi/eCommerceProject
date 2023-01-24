@@ -4,12 +4,14 @@ using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using eCommerceProject.Models;
 using EntityLayer.Concrete;
+using FluentValidation.Internal;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -30,24 +32,19 @@ namespace eCommerceProject.Controllers
         {
             _userManager = userManager;
         }
-
         [AllowAnonymous]
-
         public IActionResult Index()
         {
             var values = pm.TGetList();
             return View(values);
         }
-
         [AllowAnonymous]
-
         public IActionResult ProductDetails(int id)
         {
             ViewBag.i = id;
             var values = pm.TGetList(id);
             return View(values);
         }
-
         [Authorize]
         public IActionResult DetailsProduct(int id)
         {
@@ -55,9 +52,6 @@ namespace eCommerceProject.Controllers
             var values = pm.TGetList(id);
             return View(values);
         }
-
-       
-
         [HttpGet]
         public IActionResult EditProduct(int id)
         {
@@ -65,7 +59,6 @@ namespace eCommerceProject.Controllers
             pm.TUpdate(values);
             return View(values);
         }
-
         [HttpPost]
         public IActionResult EditProduct(Product product)
         {
@@ -81,7 +74,7 @@ namespace eCommerceProject.Controllers
                 var usermail = context.Users.Where(x => x.UserName == username).Select(y => y.Email).FirstOrDefault();
                 var traderId = context.Traders.Where(x => x.TraderUserName == username).Select(y => y.TraderID).FirstOrDefault();
 
-                
+
                 product.DateProduct = DateTime.Parse(DateTime.Now.ToShortDateString());
                 pm.TUpdate(product);
                 return RedirectToAction("MyProductsToBeApproved", "Profile");//Ekledikten sonra tekrar listelemesini istediğimiz için yaptık
@@ -96,8 +89,6 @@ namespace eCommerceProject.Controllers
             return View();
 
         }
-
-
         [HttpGet]
         public IActionResult AddProduct(int id)
         {
@@ -136,14 +127,14 @@ namespace eCommerceProject.Controllers
 
             product.SellTraderID = traderId;   //burada authentice olan traderın traderId'si Products tablosunda SellTraderId olarak kayıt olacak
             product.DateProduct = DateTime.Parse(DateTime.Now.ToShortDateString());
-            
+
             //ViewBag.i = p.productimageurl1;
             var extension = Path.GetExtension(p.productimageurl1.FileName);
             var newImageName = Guid.NewGuid() + extension;
             var location = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/productimage/", newImageName);
             var stream = new FileStream(location, FileMode.Create);
             p.productimageurl1.CopyTo(stream);
-            product.ImageUrl1Product = "/productimage/"+newImageName;
+            product.ImageUrl1Product = "/productimage/" + newImageName;
 
 
             var extension2 = Path.GetExtension(p.productimageurl2.FileName);
@@ -160,6 +151,27 @@ namespace eCommerceProject.Controllers
             p.productimageurl3.CopyTo(stream3);
             product.ImageUrl3Product = "/productimage/" + newImageName3;
 
+            var extension4 = Path.GetExtension(p.productimageurl4.FileName);
+            var newImageName4 = Guid.NewGuid() + extension4;
+            var location4 = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/productimage/", newImageName4);
+            var stream4 = new FileStream(location4, FileMode.Create);
+            p.productimageurl4.CopyTo(stream4);
+            product.ImageUrl4Product = "/productimage/" + newImageName4;
+
+            var extension5 = Path.GetExtension(p.productimageurl5.FileName);
+            var newImageName5 = Guid.NewGuid() + extension5;
+            var location5 = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/productimage/", newImageName5);
+            var stream5 = new FileStream(location5, FileMode.Create);
+            p.productimageurl5.CopyTo(stream5);
+            product.ImageUrl5Product = "/productimage/" + newImageName5;
+
+            var extension6 = Path.GetExtension(p.productimageurl6.FileName);
+            var newImageName6 = Guid.NewGuid() + extension6;
+            var location6 = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/productimage/", newImageName6);
+            var stream6 = new FileStream(location6, FileMode.Create);
+            p.productimageurl6.CopyTo(stream6);
+            product.ImageUrl6Product = "/productimage/" + newImageName6;
+
 
 
             pm.TAdd(product);
@@ -175,7 +187,6 @@ namespace eCommerceProject.Controllers
             //}
             //return View();
         }
-
         public IActionResult BuyProduct(int id)
         {
             ViewBag.i = id;
@@ -184,16 +195,8 @@ namespace eCommerceProject.Controllers
         }
         public IActionResult CheckOut(int id, Product p, Trader t)
         {
-            //var username = User.Identity.Name;
-            //ViewBag.ad = username;
-
-            //var usermail = context.Users.Where(x => x.UserName == username).Select(y => y.Email).FirstOrDefault();
-            //var traderId = context.Traders.Where(x => x.TraderUserName == username).Select(y => y.TraderID).FirstOrDefault();
-            //p.BuyTraderID = traderId;
-            //pm.TUpdate(p);  
             p.ProductID = id;
             ViewBag.i = id;
-
             ViewBag.SI = context.Products.Where(x => x.ProductID == id).Select(y => y.SellTraderID).FirstOrDefault();
 
             t.TraderID = ViewBag.SI;
@@ -203,11 +206,25 @@ namespace eCommerceProject.Controllers
             ViewBag.IBAN = context.Traders.Where(x => x.TraderID == a).Select(y => y.IBANTrader).FirstOrDefault();
 
 
-          
+
             var values = pm.TGetList(id);
             return View(values);
 
         }
+        public IActionResult LastBuy(int id)
+        {
+            var username = User.Identity.Name;
+            var traderId = context.Traders.Where(x => x.TraderUserName == username).Select(y => y.TraderID).FirstOrDefault();
+            var tumsatir = context.Products.SingleOrDefault(x => x.ProductID == id);
 
+            if (tumsatir != null)
+            {
+                tumsatir.BuyTraderID = traderId;
+                tumsatir.StatusProduct = false;
+                pm.TUpdate(tumsatir);
+            }
+
+            return RedirectToAction("MyGet", "Profile");
+        }
     }
 }
