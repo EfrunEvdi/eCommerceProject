@@ -4,14 +4,14 @@
     <div class="container">
         <div class="row main-top-w3l py-2">
             <div class="col-lg-3 col-sm-4 header-most-top">
-                <p class=" text-lg-left text-center">Hoş Geldiniz !</p>
+                <p class=" text-lg-left text-center">@await Component.InvokeAsync("WeatherList")</p>
             </div>
             <div class="col-lg-9 col-sm-8 header-right ml-auto text-sm-right text-center">
                 <!-- header lists -->
                 <ul class="top-header-lists">
-                    <li>
-                        <a href="/Admin/Admin/Index/">
-                            <i class="fas fa-map-marker mr-1"></i>Admin Paneli
+                    <li class="mx-3">
+                        <a href="/Admin/Admin/Index" class="">
+                            <i class="fas fa-sign-in-alt mr-1">Admin Paneli</i>
                         </a>
                     </li>
                     <li class="mx-3">

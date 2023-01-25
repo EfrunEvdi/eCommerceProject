@@ -7,7 +7,6 @@
 
     <div class="col-md-4 grid-margin stretch-card">
         @await Component.InvokeAsync("SumProductList")
-
     </div>
 
     <div class="col-md-8 grid-margin stretch-card">
@@ -31,7 +30,7 @@
                                     </td>
                                     <td>USA</td>
                                     <td class="text-right"> 1500 </td>
-                                    <td class="text-right font-weight-medium"> 56.35% </td>
+                                    <td class="text-right font-weight-medium"> @await Component.InvokeAsync("ChangeList") </td>
                                 </tr>
                                 <tr>
                                     <td>

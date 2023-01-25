@@ -4,11 +4,20 @@ using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using System.Runtime.Serialization.Json;
+using System.Text;
+using System.Xml;
+using System.Xml.Linq;
+using System;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace eCommerceProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "admin")]
 
     public class AdminController : Controller
     {
@@ -18,12 +27,16 @@ namespace eCommerceProject.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            return View();
+
+           return View();
         }
-
-
+    
 
     }
-
 }
+
+
+
+
+
 

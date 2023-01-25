@@ -45,7 +45,7 @@ namespace eCommerceProject.Areas.Admin.Controllers
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Login");
+            return RedirectToAction("Admin", "Admin");
         }
     }
 }

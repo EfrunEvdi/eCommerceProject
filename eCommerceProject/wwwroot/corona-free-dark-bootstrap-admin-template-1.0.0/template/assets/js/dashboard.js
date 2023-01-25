@@ -179,7 +179,7 @@
                     ctx.textBaseline = "middle";
                     ctx.fillStyle = "#6c7293";
 
-                    var texts = "مجموع",
+                    var texts = "Total",
                         textsX = Math.round((width - ctx.measureText(text).width) / 1.93),
                         textsY = height / 1.7;
 
