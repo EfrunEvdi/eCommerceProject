@@ -99,7 +99,7 @@ namespace eCommerceProject.Controllers
             ViewBag.id = traderId;
             trader.TraderID = traderId;
             tm.TUpdate(trader);
-            return RedirectToAction("MySell", "Profile");//Ekledikten sonra tekrar listelemesini istediğimiz için yaptık
+            return RedirectToAction("MyAdverts", "Profile");//Ekledikten sonra tekrar listelemesini istediğimiz için yaptık
         }
     }
 }
