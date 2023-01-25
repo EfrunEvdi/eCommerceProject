@@ -9,11 +9,43 @@
 <div class="ads-grid py-sm-5 py-4">
     <div class="container py-xl-4 py-lg-2">
         <!-- tittle heading -->
-        <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
-            <span class="font-weight-normal">
-                Hoşgeldin <b>@ViewBag.ad</b> !
-            </span>
-        </h3>
+        @*  <div class="flip-card">
+        <div class="flip-card-inner">
+        <div class="flip-card-front">
+        <img src="@ViewBag.img" alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+        <h1>@ViewBag.ad</h1>
+        <p>@ViewBag.desc</p>
+        <p>@ViewBag.mail</p>
+        </div>
+        </div>
+        </div>*@
+
+        <div class="main main-raised">
+            <div class="profile-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="avatar">
+                                <img src="@ViewBag.img" alt="@ViewBag.ad" class="rounded-circle avatar-img" />
+                            </div>
+                        </div>
+                        <div class="col-md-6  description text-center">
+                            <div class="name">
+                                <h3 class="title">@ViewBag.ad</h3>
+                                <h6>Satıcı</h6>
+                            </div>
+                            <p>@ViewBag.desc </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
         <!-- //tittle heading -->
         <div class="row">
             <!-- product right -->
@@ -37,14 +69,14 @@
                     </div>
 
                     @*<div class="left-side py-2">
-                        <h3 class="agileits-sear-head mb-3"><a href="#">BİLDİRİMLER</a></h3>
+                    <h3 class="agileits-sear-head mb-3"><a href="#">BİLDİRİMLER</a></h3>
                     </div>*@
 
                     <div class="left-side py-2">
                         <h3 class="agileits-sear-head mb-3"><a href="/Profile/MyProfile">PROFİLİ DÜZENLE</a></h3>
                     </div>
 
-                 
+
 
                     <div class="left-side py-2">
                         <h3 class="agileits-sear-head mb-3"><a href="/LoginUser/LogOut/">ÇIKIŞ YAP!</a></h3>

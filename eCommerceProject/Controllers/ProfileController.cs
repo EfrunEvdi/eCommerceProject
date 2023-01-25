@@ -30,10 +30,27 @@ namespace eCommerceProject.Controllers
         {
             var username = User.Identity.Name;
             ViewBag.ad = username;
+            Trader trader = new Trader();
 
             var usermail = context.Users.Where(x => x.UserName == username).Select(y => y.Email).FirstOrDefault();
             var traderId = context.Traders.Where(x => x.TraderUserName == username).Select(y => y.TraderID).FirstOrDefault();
+
             ViewBag.id = traderId;
+            //ViewBag.foto = trader.ImageUrlTrader;
+            //ViewBag.desc = trader.DescriptionTrader;
+            //ViewBag.phone = trader.PhoneNumberTrader;
+            //ViewBag.mail = trader.MailTrader;
+
+            var tumsatir = context.Traders.Where(x => x.TraderID == traderId).FirstOrDefault();
+            if (tumsatir != null)
+            {
+                ViewBag.img = tumsatir.ImageUrlTrader;
+                ViewBag.desc = tumsatir.DescriptionTrader;
+                ViewBag.phone = tumsatir.PhoneNumberTrader;
+                ViewBag.mail = tumsatir.MailTrader;
+            }
+
+
             var values = mc.GetProductWithSellTraderID(traderId);
             return View(values);
         }

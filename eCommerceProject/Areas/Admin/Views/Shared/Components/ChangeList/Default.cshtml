@@ -1,2 +1,46 @@
-﻿
-@ViewBag.usd
+﻿@*@ViewBag.usd*@
+
+
+
+<div class="col-md-5 exchange-content">
+    <div class="table-responsive col-12">
+        @*<table class="table">*@
+        <h3>Döviz Hesaplayıcı</h3>
+            <form class="mb-5" method="post">
+                <div class="row">
+                    <div class="col-md-12 form-group mb-3">
+                        <label for="" class="col-form-label">Adet :</label>
+                        <input type="number" class="form-control input-box" placeholder="Hesaplamak istediğiniz miktarı giriniz..">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 form-group mb-5">
+                        <label for="base" class="col-form-label">Para Birimi :</label>
+                        <select class="custom-select select-box-first">
+                        </select>
+                    </div>
+                    <div class="col-md-6 form-group mb-5">
+                    <label for="target" class="col-form-label">Çevirileceği Birim :</label>
+                        <select class="custom-select select-box-second">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <button type="button" class="btn btn-primary rounded-0 py-2 px-4"
+                                id="calculate">
+                            Hesapla
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div id="warning"></div>
+            <div id="result"></div>
+
+        @*</table>*@
+    </div>
+</div>
+

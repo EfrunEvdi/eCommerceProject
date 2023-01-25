@@ -29,14 +29,14 @@ a {
     -ms-transition: 0.5s all;
 }
 
-a:hover {
-    text-decoration: none;
-    transition: 0.5s all;
-    -webkit-transition: 0.5s all;
-    -moz-transition: 0.5s all;
-    -o-transition: 0.5s all;
-    -ms-transition: 0.5s all;
-}
+    a:hover {
+        text-decoration: none;
+        transition: 0.5s all;
+        -webkit-transition: 0.5s all;
+        -moz-transition: 0.5s all;
+        -o-transition: 0.5s all;
+        -ms-transition: 0.5s all;
+    }
 
 input[type="button"],
 input[type="submit"] {
@@ -999,10 +999,11 @@ h3.tittle-w3l {
 .men-thumb-item {
     position: relative;
 }
-.men-thumb-item img {
-    height: 200px;
-    object-fit: cover;
-}
+
+    .men-thumb-item img {
+        height: 200px;
+        object-fit: cover;
+    }
 
 #PPminicarts .minicarts-submit img {
     vertical-align: middle;
@@ -5035,3 +5036,8 @@ RIGHT SIDEBAR TOGGLE SECTION
     #w3lDemoBar.w3l-demo-bar .no-margin-bottom-mobile {
         margin-bottom: 0;
     }
+}
+
+.avatar .avatar-img {
+    width: 140px
+}

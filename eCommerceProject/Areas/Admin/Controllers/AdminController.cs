@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 namespace eCommerceProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    //[Authorize(Roles = "admin")]
+    [Authorize(Roles = "Admin")]
 
     public class AdminController : Controller
     {
@@ -28,9 +28,9 @@ namespace eCommerceProject.Areas.Admin.Controllers
         public IActionResult Index()
         {
 
-           return View();
+            return View();
         }
-    
+
 
     }
 }

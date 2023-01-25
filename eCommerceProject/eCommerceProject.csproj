@@ -51,6 +51,7 @@
     <None Include="Views\Shared\LayoutAuthenticatedPartial\BottomHeaderPartialAuth.cshtml" />
     <None Include="Views\Shared\LayoutAuthenticatedPartial\NavbarPartialAuth.cshtml" />
     <None Include="Views\Shared\LayoutAuthenticatedPartial\TopHeaderPartialAuth.cshtml" />
+    <None Include="wwwroot\403forbidden\README.markdown" />
   </ItemGroup>
 
 </Project>
