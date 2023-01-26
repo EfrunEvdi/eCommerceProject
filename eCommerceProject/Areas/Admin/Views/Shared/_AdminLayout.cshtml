@@ -160,14 +160,14 @@
                                 <a class="dropdown-item preview-item" href="/Admin/Login/LogOut/">
                                     <div class="preview-thumbnail">
                                         <div class="preview-icon bg-dark rounded-circle">
-                                           <i class="mdi mdi-logout text-danger"></i>
+                                            <i class="mdi mdi-logout text-danger"></i>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="preview-item-content">
                                         <p class="preview-subject mb-1">Çıkış Yap</p>
                                     </div>
-                                   
+
                                 </a>
                             </div>
                         </li>
@@ -193,8 +193,106 @@
     <script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/js/misc.js"></script>
     <script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/js/settings.js"></script>
     <script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/js/todolist.js"></script>
-    <script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/js/dashboard.js"></script>
+    @*<script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/js/dashboard.js"></script>*@
     <script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/js/app.js"></script>
     <script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/js/list.js"></script>
+    <script>
+        if ($("#transaction-history").length) {
+            var areaData = {
+                labels: labelData,
+                datasets: [{
+                    data: dataSize,
+                    backgroundColor: colors
+                }]
+            };
+            var areaOptions = {
+                responsive: true,
+                maintainAspectRatio: true,
+                segmentShowStroke: false,
+                cutoutPercentage: 70,
+                elements: {
+                    arc: {
+                        borderWidth: 0
+                    }
+                },
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    enabled: true
+                }
+            }
+            var transactionhistoryChartPlugins = {
+                beforeDraw: function (chart) {
+                    var width = chart.chart.width,
+                        height = chart.chart.height,
+                        ctx = chart.chart.ctx;
+
+                    ctx.restore();
+                    var fontSize = 1;
+                    ctx.font = fontSize + "rem sans-serif";
+                    ctx.textAlign = 'left';
+                    ctx.textBaseline = "middle";
+                    ctx.fillStyle = "#ffffff";
+
+                    var text = "₺" + totalPrice,
+                        textX = Math.round((width - ctx.measureText(text).width) / 2),
+                        textY = height / 2.4;
+
+                    ctx.fillText(text, textX, textY);
+
+                    ctx.restore();
+                    var fontSize = 0.75;
+                    ctx.font = fontSize + "rem sans-serif";
+                    ctx.textAlign = 'left';
+                    ctx.textBaseline = "middle";
+                    ctx.fillStyle = "#6c7293";
+
+                    var texts = totalText,
+                        textsX = Math.round((width - ctx.measureText(text).width) / 1.93),
+                        textsY = height / 1.7;
+
+                    ctx.fillText(texts, textsX, textsY);
+                    ctx.save();
+                }
+            }
+            var transactionhistoryChartCanvas = $("#transaction-history").get(0).getContext("2d");
+            var transactionhistoryChart = new Chart(transactionhistoryChartCanvas, {
+                type: 'doughnut',
+                data: areaData,
+                options: areaOptions,
+                plugins: transactionhistoryChartPlugins
+            });
+        }
+
+        if ($('#audience-map').length) {
+            $('#audience-map').vectorMap({
+                map: 'world_mill_en',
+                backgroundColor: 'transparent',
+                panOnDrag: true,
+                focusOn: {
+                    x: 0.5,
+                    y: 0.5,
+                    scale: 1,
+                    animate: true
+                },
+                series: {
+                    regions: [{
+                        scale: ['#3d3c3c', '#f2f2f2'],
+                        normalizeFunction: 'polynomial',
+                        values: {
+
+                            "BZ": 75.00,
+                            "US": 56.25,
+                            "AU": 15.45,
+                            "GB": 25.00,
+                            "RO": 10.25,
+                            "GE": 33.25
+                        }
+                    }]
+                }
+            });
+        }
+    </script>
 </body>
 </html>

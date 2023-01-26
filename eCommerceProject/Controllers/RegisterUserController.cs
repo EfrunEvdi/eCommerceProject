@@ -42,8 +42,8 @@ namespace eCommerceProject.Controllers
                 {
                     Email = signUpViewModel.Mail,
                     UserName = signUpViewModel.UserName,
-                    NameSurname = signUpViewModel.NameSurname,
-                    ImageUrl = trader.ImageUrlTrader
+                    NameSurname = signUpViewModel.NameSurname
+                    //ImageUrl = trader.ImageUrlTrader
 
                 };
                 var result = await _userManager.CreateAsync(user, signUpViewModel.Password);
@@ -62,7 +62,7 @@ namespace eCommerceProject.Controllers
                     var location = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/traderimage/", newImageName);
                     var stream = new FileStream(location, FileMode.Create);
                     signUpViewModel.imageurltrader.CopyTo(stream);
-                    trader.ImageUrlTrader = "/traderimage/"+newImageName;
+                    trader.ImageUrlTrader = "/traderimage/" + newImageName;
 
                     //}
 

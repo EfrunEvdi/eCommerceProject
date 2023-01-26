@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 namespace eCommerceProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "admin")]
 
     public class AdminController : Controller
     {

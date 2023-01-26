@@ -44,10 +44,10 @@
     <Folder Include="Areas\Admin\Views\Home\" />
     <Folder Include="Areas\Admin\Views\MainCategory\" />
     <Folder Include="wwwroot\productimage\" />
-    <Folder Include="wwwroot\traderimage\" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\ErrorPage\Error1.cshtml" />
     <None Include="Views\Shared\LayoutAuthenticatedPartial\BottomHeaderPartialAuth.cshtml" />
     <None Include="Views\Shared\LayoutAuthenticatedPartial\NavbarPartialAuth.cshtml" />
     <None Include="Views\Shared\LayoutAuthenticatedPartial\TopHeaderPartialAuth.cshtml" />
