@@ -1,0 +1,17 @@
+﻿*** User ***
+
+-> Kullacılar sıfırlanıp 10 farklı kişi ile kayıt işlemi oluşturulacak.
+-> Toplam 200 farklı alt kategori var ve hepsinden minimum 1 ürün olması gerekiyor.
+-> Footer sadeleştirilip sayfaları yapılacak.
+-> Hakkımızda kısmında iletişim var bu kısım ya düzeltilecek yada 2 si beraber eklenecek.
+-> 2li layoutlar silinip if yapısı ile tek layouta dönüştürelecek.
+-> Logine Register işlemleri template ile birlikte gelen yapıya uygun olarak düzenlenecek.
+-> 404 ve 403 templateleri ana template'e uygun hale getirelecek.
+-> Mail bülteni yapılabilir.
+
+*** Admin ***
+
+-> Admin panelinde giriş yapan kullanıcın bilgileri yazacak. Toplam 3 tane admin olacak.
+-> Tablo yapıları güzelleştirilecek.
+-> Sidebardaki menüler arttırılacak. 
+-> Belki template değiştirilecek.
